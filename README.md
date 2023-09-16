@@ -5,7 +5,7 @@ Corso _"Reti di Calcolatori"_ presso l'Università degli Studi di Parma (9 CFU).
 Guida directroty:
 ```
 
-# Appunti di Reti di cìCalcolatori
+# Appunti di Reti di Calcolatori
 Benvenuti nella repository degli appunti presi a lezione del corso "Reti di Calcolatori". In questa cartella troverete una raccolta di appunti e materiali utili per lo studio di questa disciplina.
 
 Il corso "Reti di Calcolatori" si concentra sull'apprendimento di competenze fondamentali per la progettazione, l'implementazione e la gestione delle reti informatiche. Durante il corso, verranno affrontati argomenti come la progettazione di reti, il routing, il protocollo TCP/IP, la sicurezza delle reti e molto altro.
