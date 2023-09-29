@@ -1,0 +1,17 @@
+version: "3"
+services:
+  ns3:
+    container_name: ns3
+    hostname: ns3
+    image: nginx-ssh
+    network_mode: bridge
+    volumes:
+      - /root/uni/RdC/lab/shared/:/var/www/html
+
+  ns2:
+    container_name: ns2
+    hostname: ns2
+    image: nginx-ssh
+    network_mode: bridge
+    volumes:
+      - /root/uni/RdC/lab/shared/:/var/www/html
