@@ -6,7 +6,9 @@ services:
     image: nginx-ssh
     network_mode: bridge
     volumes:
-      - /root/uni/RdC/lab/shared/:/var/www/html
+      - /root/uni/RdC/lab/shared/:/var/www/html:Z
+    security_opt:
+      - label:disable
 
   ns2:
     container_name: ns2
@@ -14,4 +16,6 @@ services:
     image: nginx-ssh
     network_mode: bridge
     volumes:
-      - /root/uni/RdC/lab/shared/:/var/www/html
+      - /root/uni/RdC/lab/shared/:/var/www/html:Z
+    security_opt:
+      - label:disable
