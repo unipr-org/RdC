@@ -1,0 +1,49 @@
+GET /1-VirtualLinux.txt HTTP/1.1
+Host: 172.17.0.2
+User-Agent: curl/7.88.1
+Accept: */*
+
+HTTP/1.1 200 OK
+Server: nginx/1.22.0 (Ubuntu)
+Date: Mon, 02 Oct 2023 14:20:07 GMT
+Content-Type: text/plain
+Content-Length: 2002
+Last-Modified: Mon, 02 Oct 2023 13:10:42 GMT
+Connection: keep-alive
+ETag: "651ac152-7d2"
+Accept-Ranges: bytes
+
+saveriomattia.merenda@studenti.unipr.it [330503]
+
+# Installazione Linux:
+- Sistema Operativo dell'Host: MacOS su hardware Apple Silicon
+- Tool Utilizzato per la Virtualizzazione: UTM (Universal Type Machine)
+- Pacchetti di Rete Installati: Fedora Linux 38 (Workstation Edition) con kernel Linux 6.4.9-200.fc38.aarch64
+- Versione Docker: 24.0.5
+
+# Aspetti Principali delle Attivit..  Svolte:
+1. Avevo gia' installato un ambiente di virtualizzazione su MacOS Apple Silicon chiamato UTM.
+2. La macchina virtuale basata su Fedora Linux 38 (Workstation Edition) con kernel Linux 6.4.9-200.fc38.aarch64 e' stata creata in passato, in quanto avevo seguito il corso di Amministrazione Sistemi IT e Cloud.
+3. Ho seguito la documentazione fornita dal professore, che si e' concentrata principalmente sull'installazione e la configurazione di Docker.
+4. Durante il processo, ho installato Docker versione 24.0.5 senza incontrare problemi significativi e ho svolto gli esercizi presenti sul pdf.
+
+             .',;::::;,'.                root@fedora
+         .';:cccccccccccc:;,.            -----------
+      .;cccccccccccccccccccccc;.         OS: Fedora Linux 38 (Workstation Edition) aarch64
+    .:cccccccccccccccccccccccccc:.       Host: QEMU Virtual Machine virt-7.2
+  .;ccccccccccccc;.:dddl:.;ccccccc;.     Kernel: 6.2.9-300.fc38.aarch64
+ .:ccccccccccccc;OWMKOOXMWd;ccccccc:.    Uptime: 2 mins
+.:ccccccccccccc;KMMc;cc;xMMc:ccccccc:.   Packages: 2069 (rpm)
+,cccccccccccccc;MMM.;cc;;WW::cccccccc,   Shell: bash 5.2.15
+:cccccccccccccc;MMM.;cccccccccccccccc:   Resolution: 1280x800
+:ccccccc;oxOOOo;MMM0OOk.;cccccccccccc:   CPU: (4)
+cccccc:0MMKxdd:;MMMkddc.;cccccccccccc;   GPU: 00:02.0 Red Hat, Inc. Virtio GPU
+ccccc:XM0';cccc;MMM.;cccccccccccccccc'   Memory: 1611MiB / 2957MiB
+ccccc;MMo;ccccc;MMW.;ccccccccccccccc;
+ccccc;0MNc.ccc.xMMd:ccccccccccccccc;
+cccccc;dNMWXXXWM0::cccccccccccccc:,
+cccccccc;.:odl:.;cccccccccccccc:,.
+:cccccccccccccccccccccccccccc:'.
+.:cccccccccccccccccccccc:;,..
+  '::cccccccccccccc::;,.
+
