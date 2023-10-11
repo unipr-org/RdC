@@ -88,8 +88,8 @@ L'architettura a strati ha alcuni vantaggi:
 
 ISO-OSI scompone la comunicazione in 7 livelli, lo scopo di ciascun strato è quello di fornire servizi agli strati superiori utilizzando i servizi forniti dai livelli inferiori.
 ### Layer:
-[[1 - Livello Fisico]]
-[[2 - Livello Collegamento]]
+[[1-Livello Fisico]]
+[[2-Livello Collegamento]]
 [[3 - Livello Rete]]
 [[4 - Livello Trasporto]]
 [[5 - Livello Sessione]]
