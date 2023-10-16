@@ -198,7 +198,7 @@ Possiamo avere diversi modi per schematizzare la codifica dei dati, essi vengono
 #### Quadrature Amplitude Modulation (QMA)
 La più efficiente e usata modulazione è la QMA e si tratta della modulazione di ampiezza e fase; ogni simbolo è determinato da una coppia di essi (fase-ampiezza) e viene rappresentato da un punto nel diagramma delle fasi, l'insieme dei punti formano una costellazione.
 
-![[make_it_simple/RdC/teoria/images/QMA.svg]]
+![[QMA.svg]]
 #### MULTIPLEXING
 Quando la larghezza di banda del canale trasmissivo è maggiore della larghezza di banda effettivamente necessaria, il canale può essere condiviso da più trasmissioni simultanee.
 Il Multiplexing è la tecnica che permette la trasmissione simultanea di più segnali in un singolo canale.

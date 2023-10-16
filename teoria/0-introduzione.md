@@ -56,7 +56,7 @@ Caratteristiche che può avere un canale:
 
 - **Multi-Accesso**: comunicazione tra n nodi tramite bus (wireless)
 
-![[make_it_simple/RdC/teoria/images/MultiAccesso.svg]]
+![[MultiAccesso.svg]]
 ## LAN (Local Area Network)
 
 I mezzi trasmissivi multi-accesso possono essere utilizzati per realizzare un particolare tipo di rete detta LAN (Local Area Network) che include tutti i nodi che condividono lo stesso canale.
