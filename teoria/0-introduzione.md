@@ -26,7 +26,7 @@ Per valutare un canale di comunicazione ho bisogno di considerare alcune metrich
 Due nodi comunicano mediante una connessione fisica, se è presente un canale fisico che li collega direttamente; una catena di canali fisici forma una connessione logica su di un percorso detto canale virtuale.
 In una connessione i nodi possono essere terminali o di transito.
 
-![[make_it_simple/RdC/teoria/images/Nodi.svg]]
+![[Nodi.svg]]
 
 Ogni link (collegamento) ha la propria ampiezza di banda e latenza, la velocità di trasmissione sul canale virtuale (throughput) non potrà superare l'ampiezza di banda del link più lento.
 E' possibile attivare più canali virtuali contemporaneamente sullo stesso link utilizzando una tecnica di condivisione del canale (multiplexing). 
@@ -52,7 +52,7 @@ Caratteristiche che può avere un canale:
 <mark style="background: #946EFA"> Canali di comunicazione: </mark>
 - **Punto-Punto**: comunicazione tra due nodi (fibra ottica, doppino)
 
-![[make_it_simple/RdC/teoria/images/Punto_Punto.svg]]
+![[Punto_Punto.svg]]
 
 - **Multi-Accesso**: comunicazione tra n nodi tramite bus (wireless)
 
@@ -79,7 +79,7 @@ Il processo per individuare ed utilizzare il percorso su cui far transitare i me
 ## ISO-OSI - Architettura a strati
 
 
-![[make_it_simple/RdC/teoria/images/ISO-OSI.svg]]
+![[ISO-OSI.svg]]
 
 L'architettura a strati ha alcuni vantaggi:
 - Scompone il problema in sotto-problemi posti a diversi livelli, più semplici da trattare.
@@ -104,7 +104,7 @@ ISO-OSI scompone la comunicazione in 7 livelli, lo scopo di ciascun strato è qu
 
 ## TCP/IP
 
-![[make_it_simple/RdC/teoria/images/TCP-IP.svg]]
+![[TCP-IP.svg]]
 
 Rispetto al modello OSI abbiamo che il TCP/IP ha condensato il livello rete e collegamento nel primo layer e non troviamo più i livelli Presentazione e Sessione.
 
