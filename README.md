@@ -8,9 +8,13 @@ Guida directrory:
 │   ├── parte1
 │   └── parte2
 ├── esercizi
-└── slides
-    ├── lab
-    └── teoria
+├── lab
+│   └── shared
+├── slides
+│   ├── lab
+│   └── teoria
+└── teoria
+
 ```
 
 # Appunti di Reti di Calcolatori
