@@ -188,17 +188,17 @@ Possiamo avere diversi modi per schematizzare la codifica dei dati, essi vengono
 - Return to Zero (RZ): solitamente è più soggetto ad errori, ma non perde il sincronismo; un bit 1 viene rappresentato da un cambiamento di stato nel segnale durante il periodo di simbolo, mentre un bit 0 viene rappresentato da nessun cambiamento di stato.
 - Not Return to Zero (NRZ): E' meno frequente agli errori, ma la quantità di di zeri e uni potrebbero causare perdita di sincronismo.
 
-![[RZ_NRZ.svg]]
+![[make_it_simple/RdC/teoria/images/RZ_NRZ.svg]]
 
 - Not Return to Zero Inverted (NRZ-I): cambia il simbolo di codifica quando incontra il bit 1.
 - Manchester: codifica i bit con le transizioni (quando incontro 1 mi abbasso, 0 mi alzo).
 - Manchester differenziale: combina la codifica Manchester con la NRZ-I (1 cambia il simbolo di codifica, 0 lo mantiene).
 
-![[Manchester.svg]]
+![[make_it_simple/RdC/teoria/images/Manchester.svg]]
 #### Quadrature Amplitude Modulation (QMA)
 La più efficiente e usata modulazione è la QMA e si tratta della modulazione di ampiezza e fase; ogni simbolo è determinato da una coppia di essi (fase-ampiezza) e viene rappresentato da un punto nel diagramma delle fasi, l'insieme dei punti formano una costellazione.
 
-![[QMA.svg]]
+![[make_it_simple/RdC/teoria/images/QMA.svg]]
 #### MULTIPLEXING
 Quando la larghezza di banda del canale trasmissivo è maggiore della larghezza di banda effettivamente necessaria, il canale può essere condiviso da più trasmissioni simultanee.
 Il Multiplexing è la tecnica che permette la trasmissione simultanea di più segnali in un singolo canale.
