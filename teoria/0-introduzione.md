@@ -1,5 +1,10 @@
-# Introduzione - Reti di Calcolatori
 
+# Index:
+
+```table-of-contents
+```
+# Introduzione - Reti di Calcolatori
+ciao
 Una **rete di calcolatori** è un insieme di nodi di elaborazione **autonomi** tra loro e **connessi** mediante un opportuno sistema di comunicazione, in grado di interagire attraverso scambio di messaggi al fine di consentire alle applicazioni in esecuzione sui nodi di comunicare tra loro.
 
 La comunicazione avviene tramite 5 componenti:
@@ -102,6 +107,11 @@ ISO-OSI scompone la comunicazione in 7 livelli, lo scopo di ciascun strato è qu
 >  - *Implementazioni carenti:* Prime implementazioni lente, complicate ed enormi, al contrario TCP/IP era semplice veloce e Open (parte di Unix)
 >  - *Incapacità politica:* Sviluppi dominati dalle Telecom, Ministeri, Comunità Europea e USA, percepito con un insieme di standard imposti da burocrati.
 
+
+
+---
+
+
 ## TCP/IP
 
 ![[TCP-IP.svg]]
@@ -109,3 +119,6 @@ ISO-OSI scompone la comunicazione in 7 livelli, lo scopo di ciascun strato è qu
 Rispetto al modello OSI abbiamo che il TCP/IP ha condensato il livello rete e collegamento nel primo layer e non troviamo più i livelli Presentazione e Sessione.
 
 >Vedi appunti TCP/IP per la spiegazione dettagliata
+
+
+[[#Index|Torna all'indice]]
