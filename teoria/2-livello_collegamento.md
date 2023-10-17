@@ -1,3 +1,10 @@
+
+# Index: 
+
+```table-of-contents
+```
+
+
 # Livello Data - Link
 Il livello Data-Link è responsabile di fornire un mezzo affidabile per il trasferimento di dati tra nodi adiacenti in una rete di computer. Questi nodi possono essere collegati attraverso canali punto-punto o su una rete multi-accesso.
 Per garantire una comunicazione affidabile, il livello Data-Link suddivide il flusso di dati in unità discrete chiamate <mark style="background: #946EFA;">frame.</mark> Un frame è un pacchetto di dati di lunghezza massima fissa o prefissata, questo processo di suddivisione aiuta a gestire in modo più efficiente la trasmissione dei dati sulla rete.
@@ -23,6 +30,8 @@ Vediamo i diversi tipi di servizi che possono essere forniti al livello di rete 
 	  - Invio dati numerati e conferme
 	  - Chiusura della connessione
 	 Tuttavia, questo servizio ha un overhead elevato e di solito non è comunemente utilizzato a livello Data-Link. È più comunemente implementato a livelli superiori, come nel protocollo TCP, che opera a livello di trasporto.
+
+[[#Index|Torna all'indice]]
 
 ---
 
@@ -50,7 +59,10 @@ Flusso iniziale: 0 1 1 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 1 0
 Aggiunta dei stuffed bits: 0 1 1 1 1 1 <span style="color: #946EFA;">0</span> 1 1 1 1 1 <span style="color: #946EFA;">0</span> 1 1 1 1 1 <span style="color: #946EFA;">0</span> 1 0 0 1 0
 Flusso elaborato dal destinatario: 0 1 1 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 1 0
 
+[[#Index|Torna all'indice]]
+
 ---
+
 
 ## Rilevazione e Correzione degli errori
 Durante la trasmissione di un frame possono verificarsi disturbi o rumore termico che possono cambiare la forma del segnale e quindi alterare la ricezione dei bit.
@@ -107,6 +119,8 @@ Il risultato, senza errori di trasmissione è una sequenza di 1, altrimenti c’
 
 ![[checksum.svg]]
 
+[[#Index|Torna all'indice]]
+
 ---
 
 ## Protocolli per il controllo del flusso
@@ -158,6 +172,10 @@ Nascendo dal mondo della telefonia, abbiamo quindi bisogno di adattare i princip
 - **Pacchetti (celle) di lunghezza fissa di 53 Byte** di cui 5 di intestazione e 48 di payload.
 
 >ATM non ha avuto successo al di fuori delle reti telefoniche, se non per la realizzazione di reti WAN, viceversa la telefonia sta diventando sempre più una applicazione di Internet.
+
+[[#Index|Torna all'indice]]
+
+---
 
 ## Local Area Network
 Un canale Multi-Accesso (o canale broadcast) è un canale condiviso per l'accesso diretto tra più terminali ed è il modo più semplice per realizzare una rete di calcolatori a livello Data-Link: <mark style="background: #946EFA;">LAN</mark>, che fanno parte dello stesso **dominio di broadcast** in cui i terminali possono scambiare tra loro messaggio unicast o broadcast.
@@ -217,6 +235,8 @@ dove:
 e^(-G) = è la funzione esponenziale di *G* elevato a meno uno.
 *k!* = rappresenta il fattoriale di *k*
 
+[[#Index|Torna all'indice]]
+
 ---
 
 <span style="color: #946EFA;">Esempio:</span>
@@ -267,6 +287,8 @@ I due domini possono non coincidere per effetto di apparati di rete (Bridge) che
 ### LAN Wireless Protocolli
 Nelle reti Wireless il dominio di collisione non è nettamente definito come nelle reti wired, in quelle wireless, il concetto di dominio di collisione è meno rilevante. In una rete wireless, i dati vengono trasmessi attraverso onde radio e non ci sono cavi fisici, di conseguenza, i dispositivi non competono fisicamente per lo stesso "spazio di trasmissione" come farebbero in una rete cablata.
 Invece, le collisioni possono ancora verificarsi, ma sono gestite tramite tecniche di accesso al mezzo come il CSMA/CA (Carrier Sense Multiple Access with Collision Avoidance).
+
+[[#Index|Torna all'indice]]
 
 ---
 
