@@ -95,11 +95,11 @@ ISO-OSI scompone la comunicazione in 7 livelli, lo scopo di ciascun strato è qu
 ### Layer:
 [[1-livello_fisico]]
 [[2-livello_collegamento]]
-[[3 - Livello Rete]]
-[[4 - Livello Trasporto]]
-[[5 - Livello Sessione]]
-[[6 - Livello Presentazione]]
-[[7 - Livello Applicazione]]
+[[3-livello_rete]]
+[[4-livello_trasporto]]
+[[5-livello_sessione]]
+[[6-livello_presentazione]]
+[[7-livello_applicazione]]
 
 >***Critiche del modello OSI***
 >  - *Poca tempestività*: OSI arriva quando il modello TCP/IP era già diffuso.
