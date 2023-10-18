@@ -1,3 +1,5 @@
+```table-of-contents
+```
 # Livello Network
 Questo livello si occupa di instradare i pacchetti di dati dal mittente al destinatario attraverso una serie di dispositivi di rete come router. Utilizza indirizzi IP per identificare i dispositivi di origine e destinazione nella rete e prende decisioni sul percorso ottimale per la trasmissione dei dati. Inoltre, gestisce questioni di congestione, controllo di flusso e può offrire servizi di qualità del servizio (QoS) per ottimizzare la prestazione della rete.
 La **commutazione**, o switching, è una tecnica che permette di instradare i pacchetti di dati in modo efficiente tra i dispositivi connessi, le due tecniche usate principalmente per la commutazione sono:
