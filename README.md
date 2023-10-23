@@ -17,6 +17,7 @@ Guida directrory:
 
 ```
 
+>Supporto per gli appunti di teoria: https://www.paypal.com/paypalme/ariannacipolla
 # Appunti di Reti di Calcolatori
 Benvenuti nella repository degli appunti presi a lezione del corso "Reti di Calcolatori". In questa cartella troverete una raccolta di appunti e materiali utili per lo studio di questa disciplina.
 

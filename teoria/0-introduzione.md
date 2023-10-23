@@ -121,3 +121,5 @@ Rispetto al modello OSI abbiamo che il TCP/IP ha condensato il livello rete e co
 
 
 [[#Index|Torna all'indice]]
+
+> Supporta il lavoro: https://www.paypal.com/paypalme/ariannacipolla
