@@ -71,8 +71,10 @@ Il datagramma (eventualmente riassemblato) viene estratto dalla **trama IP** e p
 Il datagramma IP è costituito dall’intestazione (header) IP seguita dal segmento del
 livello di trasporto, l’header ha una parte fissa e una parte opzionale variabile e viene trasmessa in ordine big endian.
 
+![[header-ip.png]]
+
 - **Version (4 bit):** i primi 4 bit di ogni pacchetto IP contengono il numero di versione.
-- **HLEN (4 bit) :** dimensione dell’header espressa in parole di 4 byte (da 5 a 15)
+- **IHL (4 bit) :** dimensione dell’header espressa in parole di 4 byte (da 5 a 15)
 - **Type of Service (6 bit):** 
 	- Inizialmente per controllo della rete (priorità e segnalazioni).
 	- Con l'RFC 2474 diventa Servizi Differenziati per la codifica delle Classi di Servizio.
