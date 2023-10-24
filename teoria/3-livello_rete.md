@@ -188,6 +188,48 @@ Quindi possiamo dedurre che il subnetting ottimale sia:
 ### Supernetting
 Il supernetting, noto anche come aggregazione di reti, è il processo opposto al subnetting. Invece di suddividere una rete in sotto-reti più piccole, il supernetting combina reti più piccole in una rete più grande. Questo viene fatto per semplificare le tabelle di routing e ridurre il carico sui router.
 
+Esempio:
+Un'azienda di contabilità ha 150 filiali per ciascuno dei 50 distretti geografici dove opera. In ogni filiale è presente un router connesso tramite [Frame Relay](https://it.wikipedia.org/wiki/Frame_Relay "Frame Relay") al quartier generale dell'azienda. Senza il supernetting, la tabella di routing di ciascuno di questi router dovrebbe tenere traccia di 150 router per ciascuno dei 50 distretti, per un totale di 7500 reti. Se però venisse implementato un sistema di indirizzamento gerarchico con il supernetting, collegando ciascuna filiale a un punto di interconnessione centralizzato che raggruppa tutte quelle dello stesso distretto, si potrebbero aggregare le rotte prima che vengano annunciate agli altri distretti. In questo modo, ciascun router sarà a conoscenza della propria subnet e di appena 49 rotte aggregate.
+
+La determinazione delle rotte aggregate da parte di un router implica il riconoscimento del numero di bit di ordine più alto che sono comuni a tutti gli indirizzi. Per esempio, un router che possiede le seguenti reti nella sua tabella di routing calcola la rotta aggregata come di seguito:
+
+```
+ 192.168.98.0
+ 192.168.99.0
+ 192.168.100.0
+ 192.168.101.0
+ 192.168.102.0
+ 192.168.105.0
+```
+
+Per prima cosa gli indirizzi vengono convertiti in formato binario e allineati in una lista:
+
+![[supernetting1.png]]
+
+In secondo luogo, vengono identificati i bit comuni, mostrati in rosso. Infine, viene contato il numero di bit comuni. La rotta aggregata viene calcolata impostando a zero i bit rimanenti, come mostrato sotto. Viene seguita da uno slash e dal numero di bit comuni.
+
+![[supernetting2.png]]
+
+La rotta aggregata è 192.168.96.0/20. La subnet mask è 255.255.240.0. Questa rotta contiene anche reti che non erano presenti nel gruppo iniziale, vale a dire 
+
+```
+192.168.96.0
+192.168.97.0
+192.168.103.0
+192.168.104.0
+192.168.106.0
+192.168.107.0
+192.168.108.0
+192.168.109.0
+192.168.110.0
+192.168.111.0
+```
+
+Bisogna avere la certezza che queste reti non esistano nelle direzioni opposte a questa rotta. 
+In un altro esempio, a un ISP viene assegnato, da parte di un RIR, un blocco di indirizzi IP che va da 172.1.0.0 a 172.1.255.255. L'ISP può assegnare questi indirizzi ai propri clienti nel seguente modo, al cliente A verrà assegnato il range da 172.1.1.0 a 172.1.1.255, al cliente B il range da 172.1.2.0 a 172.1.2.255, al cliente C il range da 172.1.3.0 a 172.1.3.255 e così via. Invece di avere singole voci per le subnet 172.1.1.x, 172.1.2.x, 172.1.3.x et cetera, l'ISP può aggregare l'intero range di indirizzi 172.1.x.x e annunciare la rete 172.1.0.0/16, allo scopo di ridurre il numero di voci globali nella tabella di routing.
+
+---
+
 ## Instradamento dei datagrammi
 La rete a cui appartiene un host è cruciale per decidere come inviare i dati a destinazione. Questa comunicazione può avvenire in due modi: direttamente o attraverso un percorso intermediario (indiretta).
 - **Direct Delivery**: host sorgente e host destinatario condividono la stessa rete, trova l'indirizzo fisico del destinatario con l'ARP (Address Resolution Protocol - permette di trovare l'indirizzo MAC di un dispositivo all'interno di una rete locale quando si conosce il suo indirizzo IP) e lo associa all'IP del destinatario. Infine inoltra il pacchetto al livello link indirizzando il destinatario.
@@ -197,6 +239,8 @@ La rete a cui appartiene un host è cruciale per decidere come inviare i dati a 
 	- **Aggiornamento della Tabella ARP (ARP Cache)**: Il dispositivo che ha richiesto l'indirizzo MAC mantiene una tabella ARP che memorizza temporaneamente le corrispondenze tra gli indirizzi IP e MAC dei dispositivi nella rete locale. In questo modo, non è necessario effettuare richieste ARP per ogni pacchetto inviato.
 - **Indirect Delivery**: sorgente e destinatario appartengono a reti IP diverse, individua il router da contattare consultando la propria **Tabella di routing**, trova l'indirizzo MAC del router tramite ARP che associa all'IP del destinatario, infine inoltra il pacchetto al livello Link indirizzando il router.
 
+---
+
 ## Tabella di Routing
 Essa contiene informazioni utilizzate dai dispositivi di rete per determinare la strada ottimale attraverso la quale inviare i pacchetti dati verso le destinazioni desiderate.
 Ecco cosa trovi solitamente in una tabella di routing:
@@ -204,6 +248,8 @@ Ecco cosa trovi solitamente in una tabella di routing:
 2. **Gateway di Default o Router**: Specifica l'indirizzo del router o del dispositivo di rete al quale inviare i dati se la destinazione non si trova nella rete locale.
 3. **Maschera di Sottorete**: Indica quale parte dell'indirizzo IP identifica la rete e quale parte identifica l'host.
 4. **Interfaccia di Uscita**: Indica l'interfaccia di rete (ad esempio, ethernet, Wi-Fi) che deve essere utilizzata per inoltrare il pacchetto verso la destinazione.
+
+---
 
 ## NAT - Network Address Translation
 Dispositivo che consente agli host di una LAN (con indirizzi privati) di comunicare in Internet utilizzando un solo indirizzo pubblico.
@@ -230,6 +276,8 @@ Le manipolazioni SNAT e DNAT sono rappresentate in tabelle che vengono consultat
 
 >In realtà NAT ha avuto una grande diffusione e ha ridotto la spinta verso IPv6.
 
+---
+
 ## ARP - Address Resolution Protocol
 Ogni interfaccia di rete di un nodo (Ethernet, LAN Wireless, Seriale, ecc) possiede un indirizzo MAC (o fisico) e, se utilizzata in internet, almeno un indirizzo IP.
 Il protocollo **ARP (Address Resolution Protocol)** ha il compito di determinare l’indirizzo fisico di un nodo IP.
@@ -237,6 +285,8 @@ Quando un nodo mittente deve contattare un destinatario in **Direct Delivery** (
 Il frame ARP contiene:
 - Un campo codice 1 = ARPrequest, 2 = ARPreplay.
 - indirizzo IP e Indirizzo HW di partenza e destinazione.
+
+---
 
 ## RARP - Reverse ARP
 In determinate situazioni alcuni nodi IP al momento dell’attivazione della rete non conoscono il loro indirizzo IP (ad esempio perché non hanno memoria permanente).
@@ -251,6 +301,8 @@ Svantaggi:
 - non sono previste altre informazioni
 RARP è reso obsoleto dal suo successore DHCP.
 
+---
+
 ## DHCP - Dynamic Host Configuration Protocol
 è un protocollo di rete utilizzato per assegnare automaticamente indirizzi IP e altre informazioni di configurazione di rete a dispositivi all'interno di una rete locale.
 Funzionamento:
@@ -260,6 +312,8 @@ Funzionamento:
 4. **Utilizzo dell'Indirizzo Assegnato**: Il dispositivo utilizza l'indirizzo IP e le altre informazioni di configurazione ricevute per configurare la sua connessione di rete e comunicare all'interno della rete.
 5. **Periodo di Affitto (Lease)**: L'indirizzo IP assegnato ha un periodo di "affitto", ovvero una durata specificata dal server DHCP. Durante questo periodo, il dispositivo può utilizzare l'indirizzo senza dover richiedere una nuova configurazione.
 6. **Rinnovo dell'Affitto**: A metà del periodo di affitto, il dispositivo può richiedere al server DHCP di rinnovare l'affitto dell'indirizzo IP. Se il server accetta, il periodo di affitto viene esteso.
+
+---
 
 ## ICMP - Intenet Control Message Protocol
 è un protocollo di servizio di IP per lo scambio di messaggi di errore o di controllo che consentono agli Host e ai Router di accorgersi di eventuali malfunzionamenti della rete.
