@@ -22,28 +22,32 @@ C'è anche una distinzione importante tra due tipi di commutazione a pacchetto:
 - **a datagramma**, dove ogni pacchetto viene instradato in modo indipendente in base alle condizioni della rete in quel momento.
 Questa architettura di comunicazione frammentata in pacchetti offre notevoli vantaggi, inclusa una maggiore affidabilità e flessibilità nella gestione del traffico di dati attraverso le reti.
 
-#### Commutazione di pacchetto a circuito virtuale
+### Commutazione di pacchetto a circuito virtuale
 Nella commutazione a circuito virtuale, un percorso predeterminato è stabilito all'apertura del Canale Virtuale (VC). Ad ogni VC è assegnata un'etichetta che guida il percorso, ogni router lungo il percorso viene contrassegnato con l'etichetta del VC e l'indicazione della porta di uscita associata. 
 È ampiamente usato nelle reti ATM per la telefonia e in Internet tramite il protocollo [[#MPLS - MultiProtocol Label Switching]].
 Va notato che la **versione 6 del protocollo IP**, noto come IPv6, supporta anche reti a circuito virtuale, aggiungendo ulteriori opzioni e flessibilità nell'architettura delle comunicazioni.
 
 *Questo dimostra quanto la commutazione a circuito virtuale sia una componente vitale nella progettazione e nell'ottimizzazione delle reti di comunicazione moderne.*
 
-##### MPLS - MultiProtocol Label Switching
+#### MPLS - MultiProtocol Label Switching
 MPLS consente di creare in Internet aree a commutazione di Label (etichette), come funziona? 
 Il router frontiera (Edge) assegna **un etichetta** ai pacchetti (header MPLS), permettendo ai router di prendere decisioni di instradamento basate su queste etichette anziché analizzare l'indirizzo IP completo, attraverso questi label il primo pacchetto definisce un *tunnel* nella rete dove i pacchetti successivi della stessa connessione seguono il percorso del primo pacchetto. 
 Questo garantisce una coerenza nel percorso seguito dai pacchetti di una specifica connessione, contribuendo alla stabilità e alla coerenza delle comunicazioni, è ampiamente usato in reti di telecomunicazioni e data center per migliorare le prestazioni.
-#### Commutazione di pacchetto a datagramma
+
+---
+
+### Commutazione di pacchetto a datagramma
 Nella commutazione a datagramma, i pacchetti viaggiano indipendentemente basandosi sull'indirizzo di destinazione. L'instradamento è deciso da tabelle costruite dinamicamente da ogni router, utilizzando algoritmi di routing. 
 Pacchetti della stessa connessione possono seguire percorsi diversi, questo approccio è <mark style="background: #946EFA;">fondamentale in implementazioni come IPv4 e IPv6.</mark>
 
-##### Routing
+### Routing
 Il routing è quella parte del software dello strato Network che si preoccupa dell'instradamento dei pacchetti in transito.
 Se la **Rete è a Datagramma** il routing viene determinato per ogni pacchetto, poiché il percorso migliore può cambiare nel tempo.
 Se la **Rete è a Circuito Virtuale** il routing viene determinato al momento dell'attivazione del circuito, da quel momento in poi tutti i pacchetti seguono il percorso stabilito.
 
 ---
-#### Protocolli TCP/IP
+
+### Protocolli TCP/IP
 Ogni strato al di sotto di IP è specifico della singola sottorete e non richiede particolari dettagli. IP si occupa di funzioni di rete e dell'instradamento dei pacchetti. TCP (o UDP) gestisce il trasporto e il controllo della connessione da un'estremità all'altra. Lo strato di applicazione ospita i software utilizzati per offrire servizi direttamente agli utenti.
 
 ---
@@ -67,7 +71,7 @@ Il datagramma (eventualmente riassemblato) viene estratto dalla **trama IP** e p
 >  *QoS, acronimo di Quality of Service, è un insieme di tecnologie e meccanismi che mirano a migliorare la qualità e l'affidabilità della trasmissione dei dati attraverso una rete.*
 
 ---
-#### Struttura della trama IP
+### Struttura della trama IP
 Il datagramma IP è costituito dall’intestazione (header) IP seguita dal segmento del
 livello di trasporto, l’header ha una parte fissa e una parte opzionale variabile e viene trasmessa in ordine big endian.
 

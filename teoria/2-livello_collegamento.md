@@ -18,7 +18,7 @@ Una volta che il frame è stato creato con il payload e le informazioni di servi
 ![[Pacchetto.svg]]
 
 ---
-#### Servizi offerti al livello Network (Rete)
+## Servizi offerti al livello Network (Rete)
 Vediamo i diversi tipi di servizi che possono essere forniti al livello di rete nel contesto del livello Data-Link:
 - [[#Protocolli in modalità non connessa]]
 	- **Senza connessione e senza conferma**: Questo servizio non richiede di stabilire una connessione prima di trasmettere i dati, è veloce e semplice, adatto per mezzi di comunicazione affidabili come Ethernet, dove la perdita di dati è rara.
@@ -42,7 +42,7 @@ Il primo problema da risolvere è come delimitare inizio e fine di un frame, com
 3. Delimitare il frame con caratteri speciali **Flag**
 La maggior parte dei protocolli Data-Link utilizza l'abbinamento delle soluzioni Flag e Temporale.
 
-#### Delimitare il frame con un Flag
+### Delimitare il frame con un Flag
 La delimitazione del frame è marcata da un Byte speciale denominato **Flag**.
 Tuttavia, sorge un problema quando la sequenza di byte all'interno del frame include accidentalmente il byte FLAG, questo potrebbe causare confusione nel ricevente, che potrebbe erroneamente interpretare la fine del frame prima del tempo.
 Per evitare questo problema, si utilizza una tecnica chiamata  <mark style="background: #946EFA;">Byte Stuffing.</mark> Nel caso di flussi di dati orientati ai byte, quando viene rilevata la sequenza flag, viene inserito un **byte di escape** (denominato "ESC") appena prima dell'occorrenza del FLAG.
@@ -63,7 +63,6 @@ Flusso elaborato dal destinatario: 0 1 1 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 1
 
 ---
 
-
 ## Rilevazione e Correzione degli errori
 Durante la trasmissione di un frame possono verificarsi disturbi o rumore termico che possono cambiare la forma del segnale e quindi alterare la ricezione dei bit.
 Gli errori sono rari su linee ottiche, mentre possono essere frequenti su canali come wireless o “ultimo miglio” sulla linea ADSL.
@@ -78,13 +77,13 @@ Ci si affaccia in due modi alla verifica degli errori:
 2. **Rilevazione e correzione degli errori**: Richiede algoritmi più complessi e maggiore ridondanza nel FCS; si utilizza raramente, in reti poco affidabili o in trasmissioni Simplex, in cui non è possibile inviare al mittente la richiesta di ritrasmissione.
 
 <span style="color: #946EFA; font-weight: bold;">Vediamo i possibili algoritmi: </span>
-#### Bit di parità (poco efficiente)
+### Bit di parità (poco efficiente)
 E' un semplice algoritmo di rilevazione dell'errore, come funziona?
 L'idea di base è quella di aggiungere un bit extra, chiamato **bit di parità**, alla sequenza di bit che si sta trasmettendo, questo bit è scelto in modo che il numero totale di 1 nella sequenza, includendo il bit di parità stesso, sia o pari o dispari (dipende dall'esigenza della rete o del sistema).
 Questo algoritmo applicato alla sequenza di un frame determina l’esistenza di un singolo errore all’interno della sequenza.
 Il bit di parità si usa in molti dispositivi hardware come ad esempio nei bus SCSI e USB e in molte cache di microprocessori.
 
-#### Cyclic Redundancy Check (CRC)
+### Cyclic Redundancy Check (CRC)
 Come funziona?
 - **Rappresentazione del frame come polinomio**: innanzitutto devo rappresentare il frame di lunghezza *d* bit come una lista di coefficienti di un polinomio *D* con *d* termini (di grado d−1). Ad esempio, la sequenza 110001110001 rappresenta x^5 + x^4 + x^0.
 - **Scelta del polinomio generatore**: successivamente il trasmettitore e il ricevitore concordano su un polinomio comune *G* di grado r (quindi r+1 bit), detto **generatore**, questo polinomio deve essere un numero primo.
@@ -102,7 +101,7 @@ Alla ricezione, il destinatario esegue gli stessi passaggi:
 >Vantaggi: i moduli di codifica e decodifica possono essere facilmente implementati in hardware.
 >Il CRC è il codice più utilizzato nei protocolli data-link.
 
-#### Checksum (Somme di controllo)
+### Checksum (Somme di controllo)
 Si basa sulla rappresentazione dei numeri in complemento a 1 per individuare differenze tra i bit inviati da mittente e quelli ricevuti dal destinatario.
 Come funziona?
 Il mittente divide il segmento in blocchi da 16 bit e li somma, quindi ne fa il complemento (inverto i bit 0 -> 1, 1 -> 0) e inserisce il risultato nel campo checksum.
@@ -127,11 +126,12 @@ Il risultato, senza errori di trasmissione è una sequenza di 1, altrimenti c’
 Il protocollo è un insieme di regole che devono essere rispettate per fare in modo che il tutto vada a buon fine; abbiamo quindi protocolli condivisi tra mittente e destinatario per garantire il corretto invio del flusso dei dati.
 Possono essere implementati al livello Data-Link o superiori.
 
-#### Protocolli in modalità non connessa
+### Protocolli in modalità non connessa
 Vengono applicati a canali che non hanno la necessità di essere sempre connessi e che sono senza rumore
 - <span style="color: #946EFA;">Protocollo semplice:</span>  non ho bisogno di attendere un feedback dal destinatario.
 - <span style="color: #946EFA;">Protocollo Stop-and-wait:</span> in questo caso ho bisogno di attendere un feedback dal destinatario prima di inviare il prossimo frame.
-#### Protocolli in modalità connessa
+- 
+### Protocolli in modalità connessa
 - <span style="color: #946EFA;">Protocollo Stop-and-wait ARQ:</span> il mittente attiva un timer per ogni frame inviato, se il mittente non riceve un ACK (un feedback di conferma) in un certo tempo il frame viene rispedito.
 - <span style="color: #946EFA;">Protocolli a finestra scorrevole:</span> (Sliding Window): migliorano l'efficienza del canale consentendo al trasmettitore di poter inviare fino SWS (Sender Window Size = numero di frame inviati consecutivamente prima di attendere l'ACK) frame senza attendere il riscontro ACK.
    I frame appartenenti alla finestra vengono memorizzati dal mittente per eventuali ritrasmissioni.
@@ -144,11 +144,11 @@ Vengono applicati a canali che non hanno la necessità di essere sempre connessi
 	   Mentre è possibile ricevere un ACK fuori sequenza e quindi: se il mittente riceve un ACK per un frame successivo a quello atteso, tutti i frame precedenti devono essere ritrasmessi. Questo garantisce che il destinatario riceva i dati in ordine corretto.
 	- Ripetizione Selettiva: i frame ricevuti correttamente, successivi a quello errato o perduto, vengono bufferizzati dal ricevente il quale sollecita il mittente al reinvio dei frame mancanti, tramite l'invio di un NACK.
 
-#### Esempi di protocolli per il livello data-link
+### Esempi di protocolli per il livello data-link
 **HDLC**: Utilizzato in ADSL, è un protocollo data link bit-oriented nato per comunicazioni punto-punto o multi-punto, con supporto sia alla modalità non connessa che connessa.
 **PPP (Point to Point Protocol)**:  è protocollo Byte Oriented, supporta solo la modalità non connessa e vari protocolli dello strato rete; gestisce protocolli ausiliari (LCP e NCP) per l'autenticazione, la configurazione degli indirizzi di rete (IP via DHCP) e la concatenazione di diversi link.
 
-#### PPP - Point to Point Protocol
+### PPP - Point to Point Protocol
 Il frame PPP aggiunge una intestazione di 6 (o 8) byte al payload, in cui vengono definiti alcuni campi originariamente ideati per HDLC.
 
 ![[PPP.svg]]
@@ -163,6 +163,8 @@ Le Telecom forniscono connessioni geografiche utilizzando le proprie reti commut
 ATM è una rete a commutazione di pacchetti, dette celle, di lunghezza fissa di 53 Byte, di cui 48 di payload.
 Lo standard PPPoA definisce le modalità per trasportare pacchetti PPP all'interno di celle ATM, PPP riceve frame Ethernet per questo  utilizza lo stesso MTU (dimensione massima di un pacchetto di dati) di 1500 Byte.
 Il frame PPP viene suddiviso in celle da 48 Byte e riassemblato all'uscita della rete ATM.
+
+---
 
 ## ATM - Asyncronous Transfer Mode
 E' una tecnologia di rete che è stata originariamente progettata per gestire la trasmissione di dati a commutazione di pacchetto attraverso la rete telefonica. Tuttavia, è stata sviluppata con l'ambizione di essere utilizzata anche per le comunicazioni Internet.
@@ -183,13 +185,13 @@ Le problematiche delle reti LAN richiedono la definizione di un protocollo speci
 - Disciplinare l’accesso al canale (se fisicamente broadcast)
 - Gestire gli indirizzamenti unicast, broadcast e multicast
 
-#### Accesso al canale
+### Accesso al canale
 Il canale può essere assegnato agli utenti in modo **statico** o **dinamico**.
 Allocazione **statica** del canale: si può realizzare con tecniche FDM e TDM (vedi [[1-livello_fisico#MULTIPLEXING]]) suddividendo la capacità trasmissiva del canale in sotto-canali di numero e dimensione prestabilita.
 Se il numero di utenti è inferiore al numero di canali ho uno spreco di banda, se il numero di utenti è superiore, alcuni utenti non possono parlare, anche se altri stanno sottoutilizzando il proprio slot.
 Questa tecnica è poco efficiente per le Reti Locali in cui gli utenti e le loro esigenze mutano rapidamente, quindi l'assegnazione del canale nelle principali tecnologie LAN è <mark style="background: #946EFA;">dinamica.</mark>
 
-#### Accesso Multiplo
+### Accesso Multiplo
 Un singolo canale viene condiviso da N stazioni, ma viene utilizzato solo da chi deve effettivamente inviare dati (assegnazione dinamica).
 Nessuna stazione gestisce il canale, ma tutte le stazioni lo devono contendere.
 Due possibili modalità di **tempo di trasmissione:**
@@ -203,7 +205,7 @@ Come faccio a verificare l'occupazione del canale? Le stazioni verificano lo sta
 
 Vediamo quindi alcuni protocolli ad Accesso Multiplo:
 
-##### ALOHA
+## ALOHA
 Ogni terminale invia i frame senza accordo con gli altri; se due o più stazioni trasmettono contemporaneamente e i loro segnali si sovrappongono, si verifica una collisione. Quando una stazione rileva una collisione o non riceve una conferma, considera che la sua trasmissione non è andata a buon fine.
 In caso di collisione parte un algoritmo chiamato **Backoff** che determina un tempo di attesa prima di riprovare, quello più usato è <mark style="background: #946EFA;">l'esponenziale binario:</mark>
 Dopo n collisioni consecutive si attende un numero di slot random tra 0 e 2N -1, per esempio Ethernet ammette un valore massimo di n=10.
@@ -255,7 +257,7 @@ $$ S = G*e^{-G} = 0.36 $$
 
 ---
 
-##### CSMA (Carrier Sense Multiple Access)
+## CSMA (Carrier Sense Multiple Access)
 Migliora le prestazioni, rispetto ad ALOHA, aggiungendo l’ascolto del canale, se il canale è occupato pospone la trasmissione; il numero di collisione è molto ridotto (ma non azzerato):
 $$ G ≈ N $$
 **CSMA non persistente**
@@ -270,7 +272,7 @@ Problema: in caso di alto traffico è probabile che 2 nodi in attesa entrino in 
 Si applica ai canali divisi in intervalli temporali, **se il canale è libero** la trasmissione avviene con probabilità p e viene rimandata all’intervallo successivo con probabilità 1-p, se anche questo è libero la trasmissione avviene con probabilità p e così via.
 **Se il canale è occupato** si comporta come se ci fosse stata una collisione: parte un algoritmo di Backoff (generalmente l'attesa è proporzionale al numero di collisioni consecutive), al crescere di p diminuisce il ritardo, ma aumenta la probabilità di collisione.
 
-##### CSMA/CD (Carrier Sense Multiple Access - Collision Detect)
+## CSMA/CD (Carrier Sense Multiple Access - Collision Detect)
 Chi spedisce rimane in ascolto sul canale anche durante la trasmissione.
 Vantaggi:
 - in caso di collisione si interrompe la trasmissione → si riduce il tempo di vulnerabilità
@@ -284,7 +286,7 @@ Il **Dominio di Broadcast** è l'insieme dei nodi che possono comunicare diretta
 senza dover risalire al livello rete.
 I due domini possono non coincidere per effetto di apparati di rete (Bridge) che separano i domini di collisione ma non i domini di broadcast.
 
-### LAN Wireless Protocolli
+## LAN Wireless Protocolli
 Nelle reti Wireless il dominio di collisione non è nettamente definito come nelle reti wired, in quelle wireless, il concetto di dominio di collisione è meno rilevante. In una rete wireless, i dati vengono trasmessi attraverso onde radio e non ci sono cavi fisici, di conseguenza, i dispositivi non competono fisicamente per lo stesso "spazio di trasmissione" come farebbero in una rete cablata.
 Invece, le collisioni possono ancora verificarsi, ma sono gestite tramite tecniche di accesso al mezzo come il CSMA/CA (Carrier Sense Multiple Access with Collision Avoidance).
 
@@ -302,7 +304,7 @@ Invece, le collisioni possono ancora verificarsi, ma sono gestite tramite tecnic
 
 ---
 
-#### CSMA/CA (Collision Avoidance)
+## CSMA/CA (Collision Avoidance)
 Prima di trasmettere, una stazione wireless ascolta il canale per verificare se è già in uso da altre stazioni. Se il canale è occupato, la stazione attende prima di tentare di trasmettere.
 Se il canale sembra libero dopo l'ascolto, la stazione che desidera trasmettere invia un piccolo pacchetto chiamato "Richiesta di Trasmissione" (RTS) al destinatario. L'RTS indica quanto tempo la stazione intende occupare il canale.
 Il destinatario risponde con un messaggio "Conferma di Trasmissione" (CTS) per confermare che è pronto a ricevere i dati. Il CTS contiene informazioni sulla durata della trasmissione, dopo di che la stazione trasmette i dati al destinatario.
