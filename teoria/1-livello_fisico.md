@@ -1,6 +1,4 @@
 
-
-
 ```table-of-contents
 ```
 
@@ -45,7 +43,6 @@ Se la banda passante utilizzata non ha valori costanti di attenuazione, come abb
 Al segnale che passiamo all'interno della banda, con potenza S, si sovrappone anche il Rumore termico che, con potenza N, è dovuto al movimento delle molecole del mezzo.
 Il rapporto segnale/rumore (SNR - Signal Noise Ratio) viene calcolato:
 $$SNR = 10*Log(S/N)$$
-
 ## Disturbo
 Proviene da fonti esterni.
 
@@ -56,7 +53,7 @@ Per  <mark style="background: #946EFA;">Banda passante analogica</mark> si inten
 Quando si parla di  <mark style="background: #946EFA;">Ampiezza di banda digitale</mark>, si indica la quantità di segnali digitali, cioè segnali rappresentabili in forma binaria, che possono essere trasmessi attraverso un canale di comunicazione in un dato periodo di tempo, deduciamo quindi che l'unità di misura sarà bit/sec.
 Possiamo dunque stabilire una relazione tra questi due concetti, basandoci sul teorema di  <mark style="background: #946EFA;">Shannon-Nyquist.</mark>
 
->**Teorema Nyquist-Shannon**
+>**Teorema Shannon-Nyquist**
 >Stabilisce una relazione tra: la frequenza di campionamento di un segnale analogico e la massima frequenza che può essere rappresentata accuratamente nel processo di campionamento.
 >Formulazione classica del teorema: per rappresentare correttamente un segnale analogico con frequenza massima B in Hz, è necessario campionare a una frequenza di almeno 2B campioni al secondo.
 >Spiegandoci in poche parole, se desideri ***digitalizzare un segnale analogico*** senza perdere informazioni importanti, devi campionare a una frequenza che è almeno il doppio della frequenza massima presente nel segnale analogico.
@@ -106,7 +103,6 @@ $$ V = 2^{(B/2H)} = 2^{(30/6)} = 32 $$
 
 ## Tempo di consegna
 E' il tempo necessario per trasferire un messaggio (sequenza di bit) dal mittente al destinatario ed è determinato dalla somma di diverse latenze introdotte dal mittente, dai nodi di transito, dal mezzo trasmissivo e dal destinatario.
-
 ## Il Round Trip Time (RTT)
 E' il tempo che intercorre tra l'invio di un dato e la ricezione di un messaggio di riscontro.
 

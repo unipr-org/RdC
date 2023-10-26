@@ -131,7 +131,7 @@ Oggi, l'assegnazione degli indirizzi IP è spesso basata su [[#CIDR - Classless 
 | B      | 10           | 128.x.x.x | 191.x.x.x | 1G        | 255.255.0.0   | /16  |
 | C      | 110          | 192.x.x.x | 223.x.x.x | 0.5G      | 255.255.255.0 | /24  |
 | D      | 1110         | 224.x.x.x | 239.x.x.x | 0.25G     | Multicast     |      |
-| E      | 1111         | 249.x.x.x | 255.x.x.x | 0.25G     | Reserved              |      |
+| E      | 1111         | 240.x.x.x | 255.x.x.x | 0.25G     | Reserved              |      |
 
 Se la parte Host è di N bit, il numero di indirizzi effettivamente assegnabili agli host è **(2^N)-2**, poiché il primo indirizzo (tutti zeri nella parte host) identifica la rete, mentre l'ultimo indirizzo (tutti uni nella parte host) è l'indirizzo di broadcast
 
