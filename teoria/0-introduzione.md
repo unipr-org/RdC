@@ -1,8 +1,7 @@
 
-# Index:
-
 ```table-of-contents
 ```
+
 # Introduzione - Reti di Calcolatori
 Una **rete di calcolatori** è un insieme di nodi di elaborazione **autonomi** tra loro e **connessi** mediante un opportuno sistema di comunicazione, in grado di interagire attraverso scambio di messaggi al fine di consentire alle applicazioni in esecuzione sui nodi di comunicare tra loro.
 
@@ -61,6 +60,9 @@ Caratteristiche che può avere un canale:
 - **Multi-Accesso**: comunicazione tra n nodi tramite bus (wireless)
 
 ![[MultiAccesso.svg]]
+
+---
+
 ## LAN (Local Area Network)
 
 I mezzi trasmissivi multi-accesso possono essere utilizzati per realizzare un particolare tipo di rete detta LAN (Local Area Network) che include tutti i nodi che condividono lo stesso canale.
@@ -82,7 +84,6 @@ Il processo per individuare ed utilizzare il percorso su cui far transitare i me
 
 ## ISO-OSI - Architettura a strati
 
-
 ![[ISO-OSI.svg]]
 
 L'architettura a strati ha alcuni vantaggi:
@@ -91,7 +92,8 @@ L'architettura a strati ha alcuni vantaggi:
 - Strati diversi possono essere sviluppati da enti diversi.
 
 ISO-OSI scompone la comunicazione in 7 livelli, lo scopo di ciascun strato è quello di fornire servizi agli strati superiori utilizzando i servizi forniti dai livelli inferiori.
-### Layer:
+
+### Livelli
 [[1-livello_fisico]]
 [[2-livello_collegamento]]
 [[3-livello_rete]]
@@ -106,10 +108,7 @@ ISO-OSI scompone la comunicazione in 7 livelli, lo scopo di ciascun strato è qu
 >  - *Implementazioni carenti:* Prime implementazioni lente, complicate ed enormi, al contrario TCP/IP era semplice veloce e Open (parte di Unix)
 >  - *Incapacità politica:* Sviluppi dominati dalle Telecom, Ministeri, Comunità Europea e USA, percepito con un insieme di standard imposti da burocrati.
 
-
-
 ---
-
 
 ## TCP/IP
 
@@ -118,8 +117,5 @@ ISO-OSI scompone la comunicazione in 7 livelli, lo scopo di ciascun strato è qu
 Rispetto al modello OSI abbiamo che il TCP/IP ha condensato il livello rete e collegamento nel primo layer e non troviamo più i livelli Presentazione e Sessione.
 
 >Vedi appunti TCP/IP per la spiegazione dettagliata
-
-
-[[#Index|Torna all'indice]]
 
 > Supporta il lavoro: https://www.paypal.com/paypalme/ariannacipolla

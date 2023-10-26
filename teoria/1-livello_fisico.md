@@ -1,14 +1,16 @@
 
-# Index:
+
 
 ```table-of-contents
 ```
-# Livello Fisico - ISO/OSI
+
+# Livello Fisico
 
 Il <mark style="background: #946EFA">Livello Fisico</mark> riceve dal livello superiore (Collegamento) i frame da trasmettere, li converte in una sequenza di bit, tramite un *adattatore*, e li riversa sul canale in cui troverà altri nodi collegati, a questo punto i bit verranno poi decodificati, tramite un *adattatore*, dal livello fisico del nodo destinatario.
 Il collegamento tra nodi, come abbiamo visto in precedenza, può essere effettuato in due modalità: Punto a Punto o Multi-Accesso.
 Il trasferimento avviene utilizzando un **Mezzo Trasmissivo** su cui i bit vengono codificati trasformandoli in una forma di energia (luce, tensione, onde, ecc.).
-#### Tipi di mezzi trasmissivi
+
+# Tipi di mezzi trasmissivi
 - **Elettrico**
 	- Cavi coassiali in rame (multi-accesso)
 	- Doppini telefonici (punto a punto)
@@ -22,31 +24,34 @@ Il trasferimento avviene utilizzando un **Mezzo Trasmissivo** su cui i bit vengo
 ---
 
 **Vediamo alcune <mark style="background: #946EFA;">caratteristiche</mark> per cui bisogna tenere conto per la scelta del mezzo trasmissivo:**
-#### Banda Passante (Hz)
+
+## Banda Passante (Hz)
 E' una banda che, contenente intervalli di frequenze, viene utilizzata per la codifica dei dati, in cui l'[[#Attenuazione (dB)]] tende ad essere **più bassa e costante possibile**.
 Solitamente la banda passante (larghezza) è determinata dal mezzo fisico che scegliamo di utilizzare, ma possiamo anche limitarla artificialmente tramite *filtri passa banda*.
 <mark style="background: #946EFA;">Le onde</mark> vengono misurate in base alla loro frequenza f (Hz) o lunghezza λ (metri), il prodotto di queste due grandezze definiscono la <mark style="background: #946EFA;">velocità di propagazione v.</mark>
 $$ v = λ * f $$
-#### Attenuazione (dB)
+
+## Attenuazione (dB)
 Il segnale durante il percorso all'interno del mezzo trasmissivo può diminuire, è possibile quindi determinare la massima distanza raggiungibile attraverso una formula.
 $$MaxDist = 10*Log(P2/P1)$$
 dove: 
 P1 = Trasmittente.
 P2 = Ricevente.
-#### Distorsione
+
+## Distorsione
 Se la banda passante utilizzata non ha valori costanti di attenuazione, come abbiamo ipotizzato precedentemente, si deve aggiungere il fenomeno della distorsione che è quindi dovuto alla maggiore attenuazione di alcune frequenze, solitamente si parla di quelle più alte.
-#### Rumore (dB)
+
+## Rumore (dB)
 Al segnale che passiamo all'interno della banda, con potenza S, si sovrappone anche il Rumore termico che, con potenza N, è dovuto al movimento delle molecole del mezzo.
 Il rapporto segnale/rumore (SNR - Signal Noise Ratio) viene calcolato:
 $$SNR = 10*Log(S/N)$$
-[[#Index|Torna all'indice]]
+
+## Disturbo
+Proviene da fonti esterni.
 
 ---
 
-#### Disturbo
-Proviene da fonti esterni
-
-#### Velocità massima di trasmissione di un canale
+# Velocità massima di trasmissione di un canale
 Per  <mark style="background: #946EFA;">Banda passante analogica</mark> si intende il range di frequenze in cui un sistema può trasmettere o ricevere segnali analogici, cioè segnali che vengono rappresentati attraverso delle onde e quindi misurati in Hz.
 Quando si parla di  <mark style="background: #946EFA;">Ampiezza di banda digitale</mark>, si indica la quantità di segnali digitali, cioè segnali rappresentabili in forma binaria, che possono essere trasmessi attraverso un canale di comunicazione in un dato periodo di tempo, deduciamo quindi che l'unità di misura sarà bit/sec.
 Possiamo dunque stabilire una relazione tra questi due concetti, basandoci sul teorema di  <mark style="background: #946EFA;">Shannon-Nyquist.</mark>
@@ -75,10 +80,7 @@ dove:
 - S = potenza del segnale
 - N = potenza del rumore
 
-[[#Index|Torna all'indice]]
-
----
-<p style="color: #946EFA; ">Esercizio:</p>
+## Esercizio
 *In un canale con Banda passante analogica (H) = 3KHz e un rapporto segnale-rumore (S/N) = 30dB, calcolare l'ampiezza di banda digitale.*
 
 H = 3KHz = 3000Hz
@@ -98,42 +100,45 @@ $$ B = H*Log_2(1+S/N) = 3000*Log_2(1+1000) ≈ 30Kb/s$$
 Applichiamo la formula inversa del teorema Shannon-Nyquest:
 $$ V = 2^{(B/2H)} = 2^{(30/6)} = 32 $$
 
-[[#Index|Torna all'indice]]
-
 ---
-#### Tempo di consegna
+
+# Tempi
+
+## Tempo di consegna
 E' il tempo necessario per trasferire un messaggio (sequenza di bit) dal mittente al destinatario ed è determinato dalla somma di diverse latenze introdotte dal mittente, dai nodi di transito, dal mezzo trasmissivo e dal destinatario.
 
-#### Il Round Trip Time (RTT)
+## Il Round Trip Time (RTT)
 E' il tempo che intercorre tra l'invio di un dato e la ricezione di un messaggio di riscontro.
 
-#### Tempo di trasmissione (bit/sec)
+## Tempo di trasmissione (bit/sec)
 E' il tempo necessario per inviare un certo numero di bit attraverso il mezzo di comunicazione fisico a una certa velocità di trasmissione. Questo tempo può variare in base al tipo di mezzo di trasmissione utilizzato, alla sua larghezza di banda e dal numero di bit.
 
 $$ TempoDiTrasmission = nDiBit/velocitàDiTrasmissione $$
-#### Tempo di propagazione
+
+## Tempo di propagazione
 Indica il tempo impiegato da un bit per viaggiare da un punto all'altro nel mezzo di trasmissione.
 $$TempoDiPropagazione = LunghezzaMezzo/VelocitàPropagazioneNelMezzo$$
-#### Tempo di preparazione del mittente
+
+## Tempo di preparazione del mittente
 Tempo necessario al mittente per la preparazione del dato da spedire (ad esempio tempi di codifica e compressione).
-#### Tempo di riempimento del pacchetto (Real Time Streaming)
+
+## Tempo di riempimento del pacchetto (Real Time Streaming)
 Nel contesto dello streaming si riferisce al periodo di tempo necessario per compilare un pacchetto di dati con un volume sufficiente di informazioni per essere trasmesso attraverso la rete. Questo concetto è particolarmente rilevante in applicazioni di streaming in tempo reale come la trasmissione video o audio.
 
 Per esempio, quando stai guardando un video in streaming in tempo reale, l'immagine e il suono vengono divisi in piccoli pacchetti di dati. Ogni pacchetto deve contenere un numero sufficiente di informazioni in modo che, una volta ricevuto dal dispositivo del destinatario, possa essere riprodotto senza interruzioni o ritardi.
 
-#### Tempo di elaborazione (o inoltro)
+## Tempo di elaborazione (o inoltro)
 Si riferisce al periodo di tempo che un nodo di transito impiega per processare e inoltrare un pacchetto di dati che transita attraverso di esso.
 
-#### Tempo di attesa
+## Tempo di attesa
 Se un nodo di transito utilizza delle code di trasmissione, si deve introdurre un tempo di attesa necessario per lo smaltimento della coda.
 
-#### Tempo di elaborazione del destinatario
+## Tempo di elaborazione del destinatario
 Tempo che viene impiegato per la decodifica e la decompressione dell'informazione ricevuta.
 
-[[#Index|Torna all'indice]]
-
 ---
-## Cavi di trasmissione
+
+# Modi per trasmettere
 
 **Cavo in Rame**
 E’ un mezzo trasmissivo a basso costo; l’attenuazione del segnale cresce rapidamente con la frequenza e con la distanza, per questo motivo è largamente utilizzato nelle reti locali.
@@ -167,13 +172,12 @@ Per trasmissione dati viene modulata l’ampiezza, la frequenza o la fase delle 
 Al crescere della frequenza aumenta l'ampiezza del canale, ma peggiora l'interazione con l'ambiente.
 Un esempio comune riguarda le trasmissioni radio, aumentando la frequenza del segnale, si può ottenere una maggiore larghezza di banda disponibile per la trasmissione di dati. Tuttavia, a frequenze più elevate, il segnale tende ad essere più suscettibile a interferenze e attenuazioni causate da elementi dell'ambiente circostante, come edifici, ostacoli naturali o altre fonti di interferenza elettronica.
 
-[[#Index|Torna all'indice]]
-
 ---
+
 ## Modulazione digitale
 E' il processo di conversione dei dati digitali in segnali digitali che possono essere voltaggi, intensità di luce, o segnali elettromagnetici, secondo le caratteristiche della linea di comunicazione usata per il collegamento. Questa tecnica è chiamata codifica.
 
-#### Tecniche di trasmissione
+## Tecniche di trasmissione
 
 **Trasmissione in banda base**
 In questo caso il segnale viene trasmesso direttamente senza modulazione, utilizzando la frequenza naturale, ciò significa che il segnale occupa una frequenza di banda molto stretta intorno a zero Hertz, quindi si utilizzano per la rappresentazione onde quadre.
@@ -190,7 +194,7 @@ La trasmissione in banda passante è comunemente utilizzata in comunicazioni a l
 Il trasferimento dei bit avviene codificando su due o più simboli, il **numero di simboli** trasmessi in un secondo è detto <mark style="background: #946EFA;"> Baud-rate.</mark>
 I simboli vengono codificati all'interno di intervalli di tempo costante (**Clock**) che rappresentano il sincronismo condiviso tra trasmettitore e ricevitore.
 
-#### Modalità di trasmissione
+## Modalità di trasmissione
 
 **Modalità Asincrona**
 Ogni gruppo di bit è inviato in modo <mark style="background: #946EFA;">asincrono</mark> (è possibile l'assenza di segnale tra un gruppo e il successivo); ogni gruppo è preceduto da una sequenza di bit aggiuntivi che consentono al destinatario di ricostruire il sincronismo.
@@ -200,7 +204,7 @@ Questa è la modalità utilizzata nelle reti calcolatori.
 E' un metodo di trasferimento di dati in cui il flusso di segnali di dati è continuo ed è accompagnato da segnali di temporizzazione. Aiuta a garantire che il trasmettitore e il ricevitore siano sincronizzati tra loro.
 Generalmente questo è possibile solo per connessioni a breve distanza e alta velocità.
 
-#### Schemi di codifica di linea
+## Schemi di codifica di linea
 Possiamo avere diversi modi per schematizzare la codifica dei dati, essi vengono utilizzati nella PCM (trasmissione telefonica digitale):
 - Return to Zero (RZ): solitamente è più soggetto ad errori, ma non perde il sincronismo; un bit 1 viene rappresentato da un cambiamento di stato nel segnale durante il periodo di simbolo, mentre un bit 0 viene rappresentato da nessun cambiamento di stato.
 - Not Return to Zero (NRZ): E' meno frequente agli errori, ma la quantità di di zeri e uni potrebbero causare perdita di sincronismo.
@@ -212,11 +216,11 @@ Possiamo avere diversi modi per schematizzare la codifica dei dati, essi vengono
 - Manchester differenziale: combina la codifica Manchester con la NRZ-I (1 cambia il simbolo di codifica, 0 lo mantiene).
 
 ![[Manchester.svg]]
-#### Quadrature Amplitude Modulation (QMA)
+## Quadrature Amplitude Modulation (QMA)
 La più efficiente e usata modulazione è la QMA e si tratta della modulazione di ampiezza e fase; ogni simbolo è determinato da una coppia di essi (fase-ampiezza) e viene rappresentato da un punto nel diagramma delle fasi, l'insieme dei punti formano una costellazione.
 
 ![[QMA.svg]]
-#### MULTIPLEXING
+## Multiplexing
 Quando la larghezza di banda del canale trasmissivo è maggiore della larghezza di banda effettivamente necessaria, il canale può essere condiviso da più trasmissioni simultanee.
 Il Multiplexing è la tecnica che permette la trasmissione simultanea di più segnali in un singolo canale.
 Esistono diverse tecniche di per implementare il multiplexing, le principali sono:
@@ -228,10 +232,9 @@ Esistono diverse tecniche di per implementare il multiplexing, le principali son
 - **OFDM (Orthogonal Frequency Division Multiplexing)** 
 	E' una tecnica FDM in cui le frequenze portanti sono tra loro ortogonali e viene utilizzata nelle principali tecnologie per trasmissione dati quali ADSL, WiFi 802.11g e 802.11n, WiMAX e nei sistemi cellulari LTE.
 
-[[#ndex|Torna all'indice]]
-
 ---
-## Il sistema telefonico
+
+# Il sistema telefonico
 Il sistema telefonico (PSTN - Public Switched Telephone Network) è una rete specializzata per la trasmissione di uno specifico tipo di dato: <mark style="background: #946EFA;"> la voce analogica.</mark>
 
 **Fino agli anni 60**
@@ -246,8 +249,6 @@ I valori digitali ottenuti dal processo di quantizzazione vengono quindi codific
 Nel ricevitore, il processo viene invertito, il segnale ricostruito viene convertito nuovamente in un formato analogico, in prossimità della destinazione, utilizzando un dispositivo chiamato Codec (coder-decoder).
 In questo caso il multiplexing delle portanti avviene in Time Division Multiplexing (TDM, visto precedentemente), ovvero suddividendo il tempo del canale in slot che si ripetono ciclicamente.
 
-[[#Index|Torna all'indice]]
-
 ---
 <p style="color: #946EFA;">Esempio:</p>
 Il canale analogico ha una larghezza di banda di 4 kHz, per rappresentare correttamente un segnale analogico su un sistema digitale, è necessario campionare il segnale a una frequenza almeno doppia della frequenza massima del segnale (teorema di Nyquist-Shannon). 
@@ -258,7 +259,7 @@ $$ 8.000 cam/sec * 8 bit = 64.000 bit/sec = 64 Kb/s $$
 
 ---
 
-#### Digitalizzazione dell'ultimo miglio
+# Digitalizzazione dell'ultimo miglio
 Abbiamo bisogno di modulare i bit con segnali analogici assimilabili alla voce umana, inviarli nel sistema telefonico e demodularli in digitale dalla parte del ricevente, tutto ciò è possibile attraverso il **Modem**, il quale avendo a disposizione un canale di 4KHz può trasmettere fino a 56 Kb/s.
 Con la tecnologia **ISDN** è stato possibile propagare il segnale digitale anche sull’ultimo miglio, portando in casa dell’utente un canale digitale da 64Kb/s.
 Negli anni 2000 per aumentare la velocità è stato introdotta la tecnologia **xDSL** che sfrutta la maggiore banda di frequenze dei cavi in categoria 3.
@@ -279,8 +280,4 @@ L'ultimo miglio in rame limita le prestazioni di ADSL, le compagnie telefoniche 
 FttC (Fiber to the Cabinet, ovvero l'armadio in strada) può arrivare ad una banda di 35Mhz e una velocità di 300 Mb/s.
 FttH (Fiber to the Home) arriva a 1 Gb/s.
 Queste tecnologie vengono genericamente riferite come FttX.
-
-[[#Index|Torna all'indice]]
-
----
 
