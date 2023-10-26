@@ -1,10 +1,15 @@
+ABR: Average BitRate
 AF: Modulazione in Frequenza
+AF: Assured Forwarding
 AM: Modulazione in Ampiezza
 ARQ: Automatic Repeat Request
 ARP: Address Resolution Protocol
 ATM: Asynchronous Transfer Mode
+AWND: Avaiable Window Size
 BPDU: Bridge Protocol Data Unit
 CA: Collision Avoidance
+CAC: Call Admission Control
+CBR: Constant Bitrate
 CD: Collision Detection
 CIDR: Classless Inter-Domain Routing
 CR: Connection Request
@@ -12,11 +17,15 @@ CRC: Cyclic Redundancy Check
 CS: Carrier Sense
 CSMA: Carrier Sense Multiple Access
 CTS: Clear to Send
+CWND: Congestion Window Size
+CWR: Congestion Window Reduced
 DCF: Distributed Coordination Function
 DF: Don't Fragment
 DHCP: Dynamic Host Configuration Protocol
 DNAT: Destination NAT
+DS: Differentiated Service
 ECN: Explicit Congestion Notification
+EF: Expedited forwarding
 ESC: Byte di Escape
 FCS: Frame Control Sequence
 FDM: Frequency Division Multiplexing
@@ -49,6 +58,7 @@ RTS: Request to Send
 RTT: Round Trip Time
 RWND: Receiver Window Size
 SACK: Selective ACK
+SLA: Service Level Agreement
 SLAAC: Stateless Address Auto Configuration
 SNAT: Source NAT
 SoF: Start of Frame
@@ -57,5 +67,9 @@ TCNA: Topology Change Notification Ack
 TCN: Topology Change Notification
 TCP: Trasmission Control Protocol
 TDM: Time Division Multiplexing
+UBR: Unspecified BitRate
 UDP: User Datagram Protocol
+VA: Voice Admit
+VBR-NRT: non-real time traffic
+VBR-RT: Real Time Variable BitRate
 VLAN: Virtual Local Area Network
