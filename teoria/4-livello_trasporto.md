@@ -1,5 +1,7 @@
 ```table-of-contents
 ```
+---
+
 # Livello trasporto
 Il livello di trasporto fornisce una serie di funzionalità cruciali per garantire che i dati vengano trasmessi in modo affidabile, sicuro ed efficiente all'interno di una rete di comunicazione.
 

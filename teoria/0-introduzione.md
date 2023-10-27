@@ -1,6 +1,7 @@
-
 ```table-of-contents
 ```
+
+---
 
 # Introduzione - Reti di Calcolatori
 Una **rete di calcolatori** è un insieme di nodi di elaborazione **autonomi** tra loro e **connessi** mediante un opportuno sistema di comunicazione, in grado di interagire attraverso scambio di messaggi al fine di consentire alle applicazioni in esecuzione sui nodi di comunicare tra loro.
