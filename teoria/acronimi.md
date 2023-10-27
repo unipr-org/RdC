@@ -52,11 +52,12 @@ PPP: Point to Point Protocol
 PSTN: Public Switched Telephone Network
 QAM: Quadrature Amplitude Modulation
 QoS: Quality of Service
-RZ: Return to Zero
+RCP: Remote Procedure Call
 RTO: Retransmission Time Out
 RTS: Request to Send
 RTT: Round Trip Time
 RWND: Receiver Window Size
+RZ: Return to Zero
 SACK: Selective ACK
 SLA: Service Level Agreement
 SLAAC: Stateless Address Auto Configuration
@@ -67,6 +68,7 @@ TCNA: Topology Change Notification Ack
 TCN: Topology Change Notification
 TCP: Trasmission Control Protocol
 TDM: Time Division Multiplexing
+TPDU: Transport Protocol Data Unit
 UBR: Unspecified BitRate
 UDP: User Datagram Protocol
 VA: Voice Admit
