@@ -53,6 +53,7 @@ PSTN: Public Switched Telephone Network
 QAM: Quadrature Amplitude Modulation
 QoS: Quality of Service
 RCP: Remote Procedure Call
+RED: Random Early Detection
 RTO: Retransmission Time Out
 RTS: Request to Send
 RTT: Round Trip Time
