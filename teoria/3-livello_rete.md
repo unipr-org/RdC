@@ -115,7 +115,7 @@ Per motivi di routing la sequenza è suddivisa in due parti:
 
 Gli indirizzi IP vengono <mark style="background: #946EFA;">classificati</mark> a seconda delle dimensioni della rete. Tradizionalmente, esistono tre classi principali di indirizzi IP, con ulteriori sottoclassi e specializzazioni:
 
-1. **Classe A**: Gli indirizzi di Classe A sono destinati alle grandi organizzazioni o provider di servizi Internet. La parte più significativa (i primi bit) di un indirizzo di Classe A è riservata per identificare la rete, mentre il resto è usato per gli host. Gli indirizzi di Classe A iniziano con un **valore compreso tra 1 e 126** nel primo ottetto.
+1. **Classe A**: Gli indirizzi di Classe A sono destinati alle grandi organizzazioni o provider di servizi Internet. La parte più significativa (i primi bit) di un indirizzo di Classe A è riservata per identificare la rete, mentre il resto è usato per gli host. Gli indirizzi di Classe A iniziano con un **valore compreso tra 0 e 127** nel primo ottetto.
 
 2. **Classe B**: Gli indirizzi di Classe B sono utilizzati per organizzazioni di medie dimensioni. Hanno una porzione di rete più ampia rispetto alla Classe A. Gli indirizzi di Classe B iniziano con un **valore compreso tra 128 e 191** nel primo ottetto.
 
