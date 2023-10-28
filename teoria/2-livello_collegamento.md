@@ -79,8 +79,8 @@ Il bit di parità si usa in molti dispositivi hardware come ad esempio nei bus S
 
 ### Cyclic Redundancy Check (CRC)
 Come funziona?
-- **Rappresentazione del frame come polinomio**: innanzitutto devo rappresentare il frame di lunghezza *d* bit come una lista di coefficienti di un polinomio *D* con *d* termini (di grado d−1). Ad esempio, la sequenza 110001110001 rappresenta x^5 + x^4 + x^0.
-- **Scelta del polinomio generatore**: successivamente il trasmettitore e il ricevitore concordano su un polinomio comune *G* di grado r (quindi r+1 bit), detto **generatore**, questo polinomio deve essere un numero primo.
+- **Rappresentazione del frame come polinomio**: innanzitutto devo rappresentare il frame di lunghezza *d* bit come una lista di coefficienti di un polinomio *D* con *d* termini (di grado d−1). Ad esempio, la sequenza 110001110001 rappresenta $x^{11}+x^{10}+x^6+x^5+x^4+x^0$.
+- **Scelta del polinomio generatore**: successivamente il trasmettitore e il ricevitore concordano su un polinomio comune *G* di grado r (quindi r+1 bit), detto **generatore**, questo polinomio deve essere di grado un numero primo.
 - **Aggiunta del CRC**: il trasmettitore aggiunge *r* bit al termine della sequenza del frame, formando un nuovo frame *M* di grado r + d−1; questi *r* bit costituiscono il CRC e sono inizialmente impostati a 0.
 - **Divisione polinomiale**: il trasmettitore esegue una divisione polinomiale modulo *G* tra il polinomio rappresentato dal frame con CRC aggiunto (*M*) e il generatore *G*. Il risultato è il quoziente *Q* e il resto *R*.
 - **Aggiornamento del CRC** : il trasmettitore sostituisce i *r* bit di CRC con il resto *R* della divisione polinomiale modulo *G*.
@@ -122,7 +122,6 @@ Possono essere implementati al livello Data-Link o superiori.
 Vengono applicati a canali che non hanno la necessità di essere sempre connessi e che sono senza rumore
 - <span style="color: #946EFA;">Protocollo semplice:</span>  non ho bisogno di attendere un feedback dal destinatario.
 - <span style="color: #946EFA;">Protocollo Stop-and-wait:</span> in questo caso ho bisogno di attendere un feedback dal destinatario prima di inviare il prossimo frame.
-- 
 ### Protocolli in modalità connessa
 - <span style="color: #946EFA;">Protocollo Stop-and-wait ARQ:</span> il mittente attiva un timer per ogni frame inviato, se il mittente non riceve un ACK (un feedback di conferma) in un certo tempo il frame viene rispedito.
 - <span style="color: #946EFA;">Protocolli a finestra scorrevole:</span> (Sliding Window): migliorano l'efficienza del canale consentendo al trasmettitore di poter inviare fino SWS (Sender Window Size = numero di frame inviati consecutivamente prima di attendere l'ACK) frame senza attendere il riscontro ACK.
