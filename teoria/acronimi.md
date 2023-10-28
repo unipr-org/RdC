@@ -39,11 +39,13 @@ LBS: Last Byte Sent
 LFS: Last Frame Sent
 LLC: Logical Link Control
 MAC: Medium Access Control
+MPLS: Multi ]Protocol Label Switching
 MSL: Maximum Segment Lifetime
 MSS: Maximum Segment Size
 MTU: Maximum Transfer Unit
 NAT: Network Address Translation
 NRZ: Not Return to Zero
+NTP: Network Time Protocol
 OFDM: Orthogonal Frequency Division Multiplexing
 PAM: Modulazione ad Ampiezza di Impulsi
 PCM: Pulse Code Modulation
