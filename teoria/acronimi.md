@@ -39,6 +39,7 @@ LBA: Last Byte Acked
 LBS: Last Byte Sent  
 LFS: Last Frame Sent  
 LLC: Logical Link Control  
+LSP: Link State Packet  
 MAC: Medium Access Control  
 MPLS: Multi ]Protocol Label Switching  
 MSL: Maximum Segment Lifetime  
