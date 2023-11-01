@@ -212,7 +212,7 @@ Possiamo avere diversi modi per schematizzare la codifica dei dati, essi vengono
 - Manchester differenziale: combina la codifica Manchester con la NRZ-I (1 cambia il simbolo di codifica, 0 lo mantiene).
 
 ![[Manchester.svg]]
-## Quadrature Amplitude Modulation (QMA)
+## Quadrature Amplitude Modulation (QAM)
 La più efficiente e usata modulazione è la QMA e si tratta della modulazione di ampiezza e fase; ogni simbolo è determinato da una coppia di essi (fase-ampiezza) e viene rappresentato da un punto nel diagramma delle fasi, l'insieme dei punti formano una costellazione.
 
 ![[QMA.svg]]
