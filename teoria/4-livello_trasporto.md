@@ -50,7 +50,7 @@ Nel processo di spedizione il dato viene eventualmente ridotto in segmenti (TPDU
 ---
 
 ## Il modello client / server
-Un estremo “**Server”** è sempre in ascolto su una porta stabilita, chiamata primitiva `bind()` assegna un indirizzo locale (porta) ad un socket.
+Un estremo “**Server”** è sempre in ascolto su una porta stabilita, chiamata la primitiva `bind()` assegna un indirizzo locale (porta) ad un socket.
 
 L'altro estremo "**Client**" prenderà contatto con il server specificandone il socket: per poter contattare il server, deve quindi conoscerne indirizzo IP e porta; quindi, la porta utilizzata dal client apparirà al server nell'intestazione di trasporto, dunque la porta del client non deve essere nota a priori. Generalmente viene determinata dinamicamente dal sistema operativo al momento della richiesta di connessione.
 
@@ -73,7 +73,7 @@ Viene utilizzato per fornire un flusso di Byte *end-to-end* affidabile a partire
 Le connessioni TCP sono **full-duplex e unicast**.
 
 Il protocollo riceve flussi di byte dai processi locali, li spezza in segmenti e li spedisce in datagrammi IP separati. 
-L'applicazione che spedisce consegna i dati in un buffer di spedizione; questi byte possono essere raggruppati in segmenti da consegnare la livello di rete.
+L'applicazione che spedisce consegna i dati in un buffer di spedizione; questi byte possono essere raggruppati in segmenti da consegnare al livello di rete.
 
 I segmenti sono di max 64KB, ma quasi sempre MSS = 1460 byte che, con le aggiunte degli header TCP e IP, arriva a 1500 che è come l’MTU di Ethernet.
 
@@ -98,8 +98,8 @@ La soluzione per applicare una connessione affidabile e senza errori è (l'hands
 
 ### Apertura di una connessione TCP
 La soluzione che utilizza il protocollo TCP è derivata da quella precedente (handshaking a 3 vie) cioè:
-1. La CONNECT (primitiva) sul **client** invia un segmento con SYN = 1, ACK = 0, seq = x (random)
-2. Se il **server** è in ascolto (LISTEN) e accetta la connessione, risponde con un segmento in cui ACK = 1, SYN = 1, ACKseq = x+1 (il destinatario riscontra il byte numero x e dichiara che x+1 è il prossimo byte che si aspetta di ricevere) e seq = y (random)
+1. La `Connect()` sul **client** invia un segmento con SYN = 1, ACK = 0, seq = x (random)
+2. Se il **server** è in ascolto `listen()` e accetta la connessione, risponde con un segmento in cui ACK = 1, SYN = 1, ACKseq = x+1 (il destinatario riscontra il byte numero x e dichiara che x+1 è il prossimo byte che si aspetta di ricevere) e seq = y (random)
 3. Il **client** termina l’apertura riscontrando la sequenza del server: ACK = 1, ACKseq = y+1
 
 > Una *primitiva* e' una system call.

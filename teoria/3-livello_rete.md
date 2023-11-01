@@ -62,8 +62,8 @@ Dalla **IS** dipende l'**Internet Advisory Board** (IAB), ente che si occupa dei
 
 ## IP - Internet Protocol
 Come funziona?
-Lo stato di trasporto prende il flusso di dati e li divide in **datagrammi** che passa allo
-stato IP, la dimensione massima è di 64KB, ma generalmente vengono scelti datagrammi non superiori a 1500 Byte (per compatibilità con Ethernet).
+Lo strato di trasporto prende il flusso di dati e li divide in **datagrammi** che passa allo
+strato IP, la dimensione massima è di 64KB, ma generalmente vengono scelti datagrammi non superiori a 1500 Byte (per compatibilità con Ethernet).
 Il datagramma di trasporto (detto Segmento) viene incorporato nella **trama IP**, cioè nella struttura del pacchetto, e trasferito da un router all’altro fino a destinazione.
 Il datagramma può subire una **frammentazione** nel caso di passaggio attraverso un
 livello data-link con dimensione massima (MTU) inferiore, i frammenti vengono riassemblati a destinazione.
@@ -243,7 +243,7 @@ La rete a cui appartiene un host è cruciale per decidere come inviare i dati a 
 - **Direct Delivery**: host sorgente e host destinatario condividono la stessa rete, trova l'indirizzo fisico del destinatario con l'ARP (Address Resolution Protocol - permette di trovare l'indirizzo MAC di un dispositivo all'interno di una rete locale quando si conosce il suo indirizzo IP) e lo associa all'IP del destinatario. Infine inoltra il pacchetto al livello link indirizzando il destinatario.
 	Come funziona?
 	- **Richiesta ARP (ARP Request)**: Quando un dispositivo nella rete ha bisogno di comunicare con un altro dispositivo nella stessa rete locale, ma non conosce l'indirizzo MAC del destinatario, invia una richiesta ARP broadcast. Questa richiesta contiene l'indirizzo IP del destinatario e chiede a tutti i dispositivi nella rete locale di rispondere con il loro indirizzo MAC se corrisponde all'indirizzo IP cercato.
-	- **Risposta ARP (ARP Reply)**: Se si trova il dispositivo con l'indirizzo IP corrispondente risponde con il proprio indirizzo MAC tramite una risposta ARP, questa risposta viene inviata direttamente al dispositivo che ha iniziato la richiesta ARP., altrimenti se non si trova il pacchetto viene instradato al default gateway (router di deafult).
+	- **Risposta ARP (ARP Reply)**: Se si trova il dispositivo con l'indirizzo IP corrispondente risponde con il proprio indirizzo MAC tramite una risposta ARP, questa risposta viene inviata direttamente al dispositivo che ha iniziato la richiesta ARP, altrimenti se non si trova il pacchetto viene instradato al default gateway (router di default).
 	- **Aggiornamento della Tabella ARP (ARP Cache)**: Il dispositivo che ha richiesto l'indirizzo MAC mantiene una tabella ARP che memorizza temporaneamente le corrispondenze tra gli indirizzi IP e MAC dei dispositivi nella rete locale. In questo modo, non è necessario effettuare richieste ARP per ogni pacchetto inviato.
 - **Indirect Delivery**: sorgente e destinatario appartengono a reti IP diverse, individua il router da contattare consultando la propria **Tabella di routing**, trova l'indirizzo MAC del router tramite ARP che associa all'IP del destinatario, infine inoltra il pacchetto al livello Link indirizzando il router.
 
@@ -272,7 +272,7 @@ Le manipolazioni SNAT e DNAT sono rappresentate in tabelle che vengono consultat
 1. **Entry Statiche**: Se vogliamo avere un server interno che deve essere contattato da un client esterno dobbiamo istruire il NAT mediante una entry statica che associa una porta del NAT con IP/porta del server interno.
     Quando un client esterno contatta il NAT sulla porta viene consultata la entry statica e applicato **DNAT**. 
     Viene inoltre creata una entry dinamica che verrà utilizzata per applicare SNAT sulla risposta.
-1. **Entry Dinamiche**: Quando un client della LAN si rivolge al NAT per contattare un server esterno, il NAT genera una entry dinamica associando IP/porta del client con la IP/porta del server quindi applica **SNAT**.
+2. **Entry Dinamiche**: Quando un client della LAN si rivolge al NAT per contattare un server esterno, il NAT genera una entry dinamica associando IP/porta del client con la IP/porta del server quindi applica **SNAT**.
     L'entry viene utilizzata per il DNAT sulla risposta del server.
 
 **Problematiche**
