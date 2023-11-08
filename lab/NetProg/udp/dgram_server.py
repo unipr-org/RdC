@@ -11,8 +11,8 @@ import optparse
 from socket import *
 
 parser = optparse.OptionParser()
-parser.add_option('-p', '--port',     dest="port", default=9000,  type=int  )
-parser.add_option('-s', '--server',   dest="server", default="0.0.0.0", )
+parser.add_option('-p', '--port',     dest="port", default=9056,  type=int  )
+parser.add_option('-s', '--server',   dest="server", default="172.17.0.3", )
 parser.add_option('-b', '--bufsize',  dest="bufsize", default=1024,  type=int , help="dimensione buffer" )
 options, remainder = parser.parse_args()
 

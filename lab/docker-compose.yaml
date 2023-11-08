@@ -1,35 +1,19 @@
-version: "3.5"
-
-networks:
-  ip6net:
-    enable_ipv6: true
-    driver: bridge
-    ipam:
-      driver: default
-      config:
-        - subnet: 2001:760::/112
-
+version: "3"
 services:
-  ns62:
-    container_name: ns62
-    hostname: ns62
+  ns3:
+    container_name: ns3
+    hostname: ns3
     image: nginx-ssh
-    networks:
-      ip6net:
-        ipv6_address: 2001:760::62
+    network_mode: bridge
     volumes:
-      - /root/uni/RdC/lab/shared/:/var/www/html:Z
-    security_opt:
-      - label:disable
-
-  ns63:
-    container_name: ns63
-    hostname: ns63
+      - /root/uni/RdC/lab/NetProg/:/NetProg
+  ns2:
+    container_name: ns2
+    hostname: ns2
     image: nginx-ssh
-    networks:
-      ip6net:
-        ipv6_address: 2001:760::63
+    network_mode: bridge
+    ports:
+      - "8056:8056"
+      - "9056:9056"
     volumes:
-      - /root/uni/RdC/lab/shared/:/var/www/html:Z
-    security_opt:
-      - label:disable
+      - /root/uni/RdC/lab/NetProg/:/NetProg

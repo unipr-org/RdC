@@ -17,16 +17,13 @@
 #include <netdb.h>
 #include <stdio.h>
 
-main(argc, argv)
-int     argc;
-char  **argv;
-{
+int main(int argc, char *argv[]){
     struct hostent *hp;
     long    addr;
 
     if (argc != 2) {
 	fprintf(stderr, "usage: %s i.p.addres\n", argv[0]);
-	exit(1);
+	return 1;
     }
     addr = inet_addr(argv[1]);
     if (hp = gethostbyaddr((char *) &addr, sizeof(addr), AF_INET)) {
@@ -39,8 +36,8 @@ char  **argv;
 	while (hp->h_addr_list[0])
 	    printf("%s ", inet_ntoa(*(struct in_addr *) * hp->h_addr_list++));
 	printf("\n");
-	exit(0);
+	return 0;
     }
     fprintf(stderr, "host %s not found\n", argv[1]);
-    exit(1);
+    return 1;
 }

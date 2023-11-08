@@ -24,8 +24,8 @@ def ascolto(s,addr):
 if __name__ == "__main__":
 
         parser = optparse.OptionParser()
-        parser.add_option('-s', '--server',  dest="server",  default="0.0.0.0", help="nome del server" )
-        parser.add_option('-p', '--port',    dest="port",    type=int,  default=9000, help="porta di ascolto del server" )
+        parser.add_option('-s', '--server',  dest="server",  default="172.17.0.3", help="nome del server" )
+        parser.add_option('-p', '--port',    dest="port",    type=int,  default=9056, help="porta di ascolto del server" )
         options, remainder = parser.parse_args()
         print ("OPTIONS  server:", options.server, " - port:", options.port)
 
