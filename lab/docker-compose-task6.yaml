@@ -1,0 +1,19 @@
+version: "3"
+services:
+  ns3:
+    container_name: ns3
+    hostname: ns3
+    image: nginx-ssh
+    network_mode: bridge
+    volumes:
+      - /root/uni/RdC/lab/NetProg/:/NetProg
+  ns2:
+    container_name: ns2
+    hostname: ns2
+    image: nginx-ssh
+    network_mode: bridge
+    ports:
+      - "8056:8056"
+      - "9056:9056"
+    volumes:
+      - /root/uni/RdC/lab/NetProg/:/NetProg
