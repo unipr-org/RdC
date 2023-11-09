@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 
-# Nome Cognome
-# data 
-# summary
+# Saverio Mattia Merenda 08/11/2023
 
 from socket import *
 import sys

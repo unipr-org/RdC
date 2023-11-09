@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 
-# Nome Cognome
-# data
-# summary
-
+# Saverio Mattia Merenda 08/11/2023
 
 import sys, signal, os
 #import select
