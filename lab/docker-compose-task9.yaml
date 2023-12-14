@@ -1,0 +1,61 @@
+version: "3"
+
+networks:
+  bridge1:
+    name: bridge1
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.21.0.0/24
+  bridge2:
+    name: bridge2
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.22.0.0/24
+
+services:
+  ns2:
+    privileged: true
+    container_name: ns2
+    hostname: ns2
+    image: nginx-ssh
+    networks:
+      bridge1:
+        ipv4_address: 172.21.0.2
+    ports:
+      - "2002:22"
+    volumes:
+      - /root/uni/RdC/lab/shared/:/var/www/html:Z
+    security_opt:
+      - label:disable
+
+  ns3:
+    privileged: true
+    container_name: ns3
+    hostname: ns3
+    image: nginx-ssh
+    networks:
+      bridge1:
+        ipv4_address: 172.21.0.3
+      bridge2:
+        ipv4_address: 172.22.0.3
+    ports:
+      - "8003:80"
+    volumes:
+      - /root/uni/RdC/lab/shared/:/var/www/html:Z
+    security_opt:
+      - label:disable
+
+  ns4:
+    privileged: true
+    container_name: ns4
+    hostname: ns4
+    image: nginx-ssh
+    networks:
+      bridge2:
+        ipv4_address: 172.22.0.4
+    volumes:
+      - /root/uni/RdC/lab/shared/:/var/www/html:Z
+    security_opt:
+      - label:disable
