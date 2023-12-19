@@ -2,14 +2,13 @@
 Corso _"Reti di Calcolatori"_ presso l'Università degli Studi di Parma (9 CFU).
 
 ```
-Guida directrory:
+Guida directory:
 .
 ├── esami
 │   ├── parte1
 │   └── parte2
 ├── esercizi
 ├── lab
-│   └── shared
 ├── slides
 │   ├── lab
 │   └── teoria
