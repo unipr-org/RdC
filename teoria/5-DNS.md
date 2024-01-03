@@ -1,7 +1,7 @@
 ```table-of-contents
 ```
 # Protocollo TFTP e FTP
-TFTP è la versione semplificata di FTP (File Transfer Protocol), che è stato sviluppato per il trasferimento efficiente ed affidabile dei dati, infatti si basa du TCP.
+TFTP è la versione semplificata di FTP (File Transfer Protocol), che è stato sviluppato per il trasferimento efficiente ed affidabile dei dati, infatti si basa su TCP.
 Il server FTP offre anche un servizio di autenticazione per l'accesso al file-system, la gestione delle directory (navigazione, creazione, cancellazione) e dei file.
 Altra caratteristica peculiare è quella di usare due porte: la TCP/21 (comandi) e la TCP/20 (dati).
 Le modalità di funzionamento sono due: attiva e passiva.
