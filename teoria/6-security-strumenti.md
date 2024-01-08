@@ -15,7 +15,7 @@ Per proteggere un host in rete o una comunicazione occorre stabilire dei servizi
 	- Non ripudio della sorgente: una volta che un mittente ha inviato un messaggio o ha compiuto un'azione, non può negare in modo credibile di averlo fatto. Ciò è solitamente ottenuto attraverso l'uso di firme digitali o altri metodi di autenticazione avanzati che collegano in modo univoco un'azione o un messaggio a una specifica entità.
 	- Non ripudio della destinazione: in questo contesto, una volta che la destinazione ha ricevuto i dati, non può negare in modo credibile di averli ricevuti. La conferma di consegna o altri meccanismi simili possono essere utilizzati per dimostrare che la destinazione ha effettivamente ricevuto e preso in carico i dati.
 - **Disponibilità** (Avaliability): si concentra sulla protezione e assicurazione dell'accessibilità e dell'operatività di una risorsa di sistema o di rete. In altre parole, la disponibilità mira a garantire che le risorse siano sempre accessibili quando necessario e che il sistema sia in grado di erogare i servizi previsti senza interruzioni indesiderate.
-- **Audut** (Accoutability, Traceability): coinvolge la registrazione e la monitorazione di eventi di sistema o di rete. L'obiettivo principale è fornire una traccia accurata delle attività che si verificano in un sistema, consentendo la ricostruzione degli eventi, l'individuazione di comportamenti sospetti e, in alcuni casi, la possibilità di addebitare responsabilità per determinate azioni.
+- **Audit** (Accoutability, Traceability): coinvolge la registrazione e la monitorazione di eventi di sistema o di rete. L'obiettivo principale è fornire una traccia accurata delle attività che si verificano in un sistema, consentendo la ricostruzione degli eventi, l'individuazione di comportamenti sospetti e, in alcuni casi, la possibilità di addebitare responsabilità per determinate azioni.
 
 ## Metodi di attacco
 - **Attacco passivo:** sono tattiche utilizzate dagli aggressori per raccogliere informazioni o intercettare comunicazioni senza alterare attivamente i dati o compromettere la disponibilità dei servizi. Questi attacchi sono spesso focalizzati sulla raccolta di informazioni sensibili o riservate.
@@ -38,7 +38,7 @@ Per proteggere un host in rete o una comunicazione occorre stabilire dei servizi
 ### Attacco passivo
 #### Sniffing e Scanning
 - **Sniffing**: analizzare il traffico di rete utilizzando un analizzatore di protocollo, è necessario un accesso privilegiato all'interfaccia di rete. 
-   Possono essere orientati ad analizzare una sequenza di pacchetti
+    Possono essere orientati ad analizzare una sequenza di pacchetti
 	- Esempi di strumenti: tcpdump e wireshark.
 - **Scanning**: testare un intervallo di indirizzi IP e numeri di porta per vedere quali servizi o sistemi sono presenti ed attivi.
 	- Esempio di strumento : nmap → è uno tool open-source per la network exploration e l'auditing.
@@ -46,9 +46,9 @@ Per proteggere un host in rete o una comunicazione occorre stabilire dei servizi
 ### Attacco Attivo
 #### Spoofing (fabbricazione)
 E' un tipo di attacco informatico dove viene impiegata la falsificazione dell'identità (spoof), quando la falsificazione non avviene in campo informatico si parla di social engineering.
-- **User account spoofing**: usare nome utente e password di un altro utente senza averne il diritto, può avvenire utilizzando strumenti come sniffer e password crackers I password cracker possono essere off-line come John the Ripper, oppure on-line, come Hydra.
+- **User account spoofing**: usare nome utente e password di un altro utente senza averne il diritto, può avvenire utilizzando strumenti come sniffer e password crackers, i password cracker possono essere off-line come John the Ripper, oppure on-line, come Hydra.
 - **IP Address spoofing**: Si basa sul fatto che la maggior parte dei routers all'interno di una rete controllino solo l'indirizzo IP di destinazione e non quello sorgente
-  Finalità:
+    Finalità:
 	- superare le tecniche difensive basate sull'autenticazione dell'indirizzo.
 	- Realizzare attacchi DDoS. Vedi ad esempio “NTP reflection”.
 - **MAC Address forging**: il MAC address viene modificato impersonando l'indirizzo della vittima, diversi sistemi di autenticazione/autorizzazione sono basati su MAC address.
@@ -98,12 +98,11 @@ Un qualsiasi software creato allo scopo di causare danni a un computer, ai dati 
 - **Perimetro di Sicurezza:** rappresenta il confine tra l'ambiente interno e esterno di un dominio di sicurezza. È la zona dove le misure di sicurezza sono particolarmente rafforzate per proteggere l'accesso non autorizzato da parte di entità esterne. Questo può includere firewall, sistemi di rilevamento degli intrusi e altri dispositivi di sicurezza.
 - **Superficie di Attacco:** è costituita dai vari punti in cui un attaccante potrebbe cercare di compromettere la sicurezza di un sistema o di un'organizzazione. Ridurre la superficie di attacco implica implementare misure di sicurezza per limitare i punti di accesso potenziali, riducendo così le opportunità per gli attaccanti di sfruttare vulnerabilità. Ciò include l'implementazione di patch regolari, la configurazione sicura dei servizi e l'adozione di best practice di sicurezza.
 ### Domini di Sicurezza
-- Assegnazione di Grado di Fiducia:** ogni dominio di sicurezza riceve una classificazione o grado di fiducia che riflette il suo livello di sicurezza e il suo rapporto con altri domini.
+- **Assegnazione di Grado di Fiducia:** ogni dominio di sicurezza riceve una classificazione o grado di fiducia che riflette il suo livello di sicurezza e il suo rapporto con altri domini.
 - **Regole di Visibilità:** determinano quali domini possono vedere o interagire con altri. Queste regole sono basate sui gradi di fiducia assegnati.
-  Un dominio con un grado di fiducia più elevato può avere accesso più ampio, mentre un dominio con un grado più basso può avere un accesso limitato.
-
+    Un dominio con un grado di fiducia più elevato può avere accesso più ampio, mentre un dominio con un grado più basso può avere un accesso limitato.
 - **Eccezioni alle Regole di Visibilità:** possono essere definite per consentire specifiche interazioni tra domini con gradi di fiducia diversi.
-  Ad esempio, la DMZ e l'INSIDE possono avere una visibilità completa sull'OUTSIDE, ma l'accesso tra altri domini può essere limitato o bloccato.
+    Ad esempio, la DMZ e l'INSIDE possono avere una visibilità completa sull'OUTSIDE, ma l'accesso tra altri domini può essere limitato o bloccato.
 
 Nell'esempio fornito, la DMZ e l'INSIDE hanno una visibilità completa sull'OUTSIDE, la DMZ è una zona intermedia tra l'ambiente interno e quello esterno e spesso contiene servizi o risorse accessibili dall'esterno senza compromettere la sicurezza interna.
 
@@ -194,7 +193,7 @@ Può essere installato:
 
 ### Tecniche Antispam
 - **Black list**: lista di server classificati spammers che viene attivata sul mail server rifiutando mail che provengono da host inclusi in questa lista. 
-  L'amministratore del mailserver può costruire manualmente una propria lista o può avvalersi di servizi in Internet che distribuiscono automaticamente le liste. 
+    L'amministratore del mailserver può costruire manualmente una propria lista o può avvalersi di servizi in Internet che distribuiscono automaticamente le liste. 
 - **Gray-List**: si basano sul fatto che i mailer usati dagli spammer generalmente tentano l'invio di una email una sola volta: Il GrayListing consiste nel rigetto della ricezione della mail al primo tentativo, che verrà accettata ad un successivo tentativo, dopo un tempo stabilito (tipicamente 300 sec.) 
 - **White List**: liste di mittenti “Fidati” su cui non vengono effettuati controlli antispam. Include gli host accettati da Gray-list e host inseriti manualmente dall'amministratore. 
 - **Filtri Bayesiani**: sono filtri che cercano di classificare le mail in arrivo assegnando un punteggio numerico a frasi o modelli che si presentano nel messaggio. Ogni messaggio riceve quindi un punteggio compressivo (tra 0 e 1) che, dopo aver stabilito una soglia, ci consente di classificare il messaggio. Il filtro richiede un addestramento con mail spam e no-spam con cui viene creato un database di riferimento.
@@ -236,7 +235,7 @@ Per ogni evento è possibile definire una azione come scrivere su file (tipicame
 
 #### Audit della rete
 Consiste nella raccolta e analisi sistematica del traffico di rete e per la rilevazione in tempo reale di minacce provenienti dalla rete, è necessaria la nomina di un amministratore di rete. 
-Strumenti utili sono i **Network Monitor** (esempio ntop , dotato di una console web, vedi figura), gli **Intrusion Detection Systems** (IDS), gli **Honeypot** e i **Vulnerability Scanners.**
+Strumenti utili sono i **Network Monitor** (esempio ntop , dotato di una console web), gli **Intrusion Detection Systems** (IDS), gli **Honeypot** e i **Vulnerability Scanners.**
 
 ##### IDS - intrusion Detection System
 IDS è un dispositivo software/hardware per identificare accessi non autorizzati a host o LAN. 

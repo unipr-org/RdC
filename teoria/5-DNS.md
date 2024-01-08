@@ -45,7 +45,7 @@ Il dominio più a destra (`it nell’esempio`) è detto Top Level Domain (TLD), 
 >Sono 4 i server DNS coinvolti nel caricamento di una pagina web:
 > 1. **Resolver ricorsivi
 > 2. Root nameserver
-> 3. TDL Nameserver 
+> 3. TLD Nameserver 
 > 4. Nameserver autoritativi**
 > Questi quattro server DNS lavorano insieme in armonia per completare l'attività di apparizione dell'indirizzo IP per un dominio specificato al client.
 
