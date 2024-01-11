@@ -48,3 +48,10 @@ Vi ricordo che gli appunti presenti in questa cartella sono forniti a titolo inf
 Buono studio!
 
 > Altri appunti: _[merendamattia.com/uni](https://www.merendamattia.com/uni.html)_
+
+---
+
+## Contributors
+<a href="https://github.com/merendamattia/RdC/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=merendamattia/RdC" />
+</a>
