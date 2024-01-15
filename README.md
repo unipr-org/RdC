@@ -33,9 +33,7 @@ Vi ricordo che gli appunti presenti in questa cartella sono forniti a titolo inf
 
 Buono studio!
 
----
-
 ## Contributors
-<a href="https://github.com/merendamattia/RdC/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=merendamattia/RdC" />
+<a href="https://github.com/unipr-org/RdC/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=unipr-org/RdC" />
 </a>
