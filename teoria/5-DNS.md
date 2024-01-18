@@ -10,7 +10,7 @@ Altra caratteristica peculiare è quella di usare due porte: la TCP/21 (comandi)
 
 Le modalità di funzionamento sono due: attiva e passiva.
 - Nella *modalità attiva* il client apre il canale comandi verso il server (porta 21 del server), mentre per la trasmissione dati il client svolge la funzione di server, ovvero rimane in ascolto sulla porta > 1024 mentre il server si comporta da client utilizzando la porta 20. In genere le politiche di sicurezza impediscono l’accesso alle porte dei client bloccando questa modalità. 
-- Nella modalità passiva* il server indica al client la porta > 1024 da utilizzare per il trasferimento dei dati.
+- Nella *modalità passiva* il server indica al client la porta > 1024 da utilizzare per il trasferimento dei dati.
 
 TFTP non supporta l'autenticazione e utilizza UDP, con il server in ascolto sulla porta 69. Questo significa che la gestione del flusso (numerazione dei pacchetti, Acknowledgement, gestione degli errori) viene realizzata a livello applicativo, all'interno di TFTP.
 
@@ -162,6 +162,8 @@ Ogni nuovo host viene inserito tipicamente sia nella zona per la risoluzione dir
 ---
 
 ## DNS Server autoritativo
+> [Approfondimento nameserver.](https://www.cloudflare.com/it-it/learning/dns/dns-records/dns-ns-record/)
+
 L'ultimo server DNS coinvolto nel caricamento di una pagina web e' il DNS Server autoritativo.
 
 Quando un resolver ricorsivo riceve una risposta da un TLD nameserver, tale risposta indirizzerà il resolver a un nameserver autoritativo. Il nameserver autoritativo è di solito l'ultimo passo del resolver nel viaggio verso un indirizzo IP. 
@@ -192,7 +194,9 @@ Se il server che riceve la richiesta è autoritativo per il dato richiesto rispo
 Generalmente, un server ammette query ricorsive solo per i client locali.
 
 Ricorsivo:
-![[query.png]]
+![[query2.png]]
+
+> Nota bene: la ricorsione avviene solo nella sezione rossa.
 
 Iterativo:
 ![[processo_iterativo.png]]
