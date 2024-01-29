@@ -25,6 +25,8 @@ Per proteggere un host in rete o una comunicazione occorre stabilire dei servizi
 - **Confidenzialità/Riservatezza** (Data Confidentiality): si riferisce alla protezione delle informazioni da accessi non autorizzati o divulgazioni non desiderate. L'obiettivo principale è assicurare che solo gli utenti autorizzati possano accedere a determinati dati e che questi dati siano mantenuti segreti e al sicuro.
   
 - **Integrità dei dati** (Data Integrity): si concentra sulla garanzia che i dati non siano stati alterati in modo non autorizzato o accidentale durante il loro ciclo di vita. Garantire l'integrità dei dati è fondamentale per preservare la precisione, l'affidabilità e la coerenza delle informazioni.
+
+- **Integrità dei sistemi** (System Integrity): protegge le risorse del sistema contro modifiche, distruzioni accidentali o non autorizzate.
   
 - **Non ripudio** (Non-Repudiation): mira a fornire protezione contro il ripudio o la negazione delle azioni da parte degli utenti coinvolti in una comunicazione o transazione. Questo principio è spesso diviso in due aspetti principali:
 	- Non ripudio della sorgente: una volta che un mittente ha inviato un messaggio o ha compiuto un'azione, non può negare in modo credibile di averlo fatto. Ciò è solitamente ottenuto attraverso l'uso di firme digitali o altri metodi di autenticazione avanzati che collegano in modo univoco un'azione o un messaggio a una specifica entità.
@@ -135,6 +137,48 @@ I malware possono essere:
 
 ---
 
+#### CWE & CVE
+CWE https://cwe.mitre.org/ è una lista si debolezze di sicurezza mantenuta da Mitre Corporation https://www.mitre.org/ (organizzazione no-profit) in cui ogni tipologia di debolezza viene classificata attribuendo un identificativo numerico univoco.
+
+Esempi delle debolezze più rilevanti nel 2022:
+- CWE-787 : Out-of-bounds Write
+- CWE-79 : Cross-site Scripting
+- CWE-89 : SQL Injection
+- CWE-20 : Improper Input Validation
+- CWE-125 : Out-of-bounds Read
+- CWE-78 : OS Command Injection
+- CWE-416 : Use After Free
+- CWE-22 : Path traversal
+
+Mitre Corporation gestisce anche il dizionario CVE (Common Vulnerabilities and Exposures) in cui sono classificate ed enumerate le singole vulnerabilità e falle di sicurezza note pubblicamente.
+
+Esistono diversi elenchi delle vulnerabilità più sfruttate nel 2022.
+Ad esempio: https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-215a
+
+In questo elenco la vulnerabilità più sfruttata nel 2022 è la CVE-2018-13379
+Denominata «Fortinet FortiOS SSL VPN Path Traversal Vulnerability»
+Appartenente al CWE-22
+( Improper Limitation of a Pathname to a Restricted Directory - 'Path Traversal’ )
+Organizzazioni come GARR-CERT diffondono regolarmente avvisi riguardo nuove vulnerabilità:
+https://www.cert.garr.it/en/alert-en/security-alerts/archive/listing
+
+---
+
+#### CVSS
+Il Common Vulnerability Scoring System (CVSS) è una norma tecnica aperta per valutare la gravità delle vulnerabilità di sicurezza di un sistema informatico.
+
+CVSS assegna un punteggio di gravità alle vulnerabilità, consentendo a chi si occupa di rispondere all'emergenza di stabilire la priorità di risposte e risorse in base al livello di minaccia.
+
+I punteggi vengono calcolati con una formula che dipende da diverse metriche che approssimano la facilità e l'impatto di un exploit. Il punteggio è espresso in una scala da 0 a 10, dove 10 indica il livello di vulnerabilità più grave.
+
+Esistono diverse versioni di CVSS per calcolare lo score; le versioni più recenti sono CVSS3 e CVSS2.
+Diverse organizzazioni calcolano in CVSS per le nuove vulnerabilità, tra cui NIST.
+
+Nell’esempio della vulnerabilità CVE-2018-13379 NIST ha calcolato:
+CVSS3: 9.8/10 CVSS2: 9.1/10
+
+---
+
 #### Ingegneria sociale e Spam
 - [**Ingegneria sociale**](https://it.wikipedia.org/wiki/Ingegneria_sociale): lo studio del comportamento individuale di una persona al fine di carpire informazioni utili.
 	- Phishing: è un tipo di ingegneria sociale attraverso la quale un aggressore cerca di ingannare la vittima convincendola a fornire informazioni personali sensibili.
@@ -196,8 +240,8 @@ I firewall possono essere di 2 tipi:
 Questo filtro analizza tutti i pacchetti in transito e applica azioni del tipo permit/deny sulla base di politiche basate sugli indirizzi IP e le porte di provenienza e/o di destinazione. 
 
 Obiettivi:
-- Rendere visibili ad internet solamente i servizi di rete destinati ad un accesso pubblico (protezione dei servizi intranet e dei servizi “inconsapevoli”)
-- Bloccare il traffico indesiderato (es: P2P, ...) 
+- Rendere visibili ad internet solamente i servizi di rete destinati ad un accesso pubblico (protezione dei servizi intranet e dei servizi “inconsapevoli”).
+- Bloccare il traffico indesiderato (es: P2P, ...). 
 - Strumento per la gestione delle emergenze (bloccare un host ostile o contaminato da virus).
 
 Agisce a livello di pacchetti IP, ma deve leggere anche i primi byte del livello 4 per leggere le porte TCP o UDP. 
@@ -248,11 +292,11 @@ interface eth 0
 ---
 
 #### IPtables
-Il pacchetto software IPtables consente di applicare ACL per il Packet filtering sulle interfacce di Sistemi Linux. IPtables lavora sulle 3 tabelle: filter, nat, mangle, sulle quali possiamo creare catene  (chains) di regole ACL. 
+Il pacchetto software IPtables consente di applicare ACL per il Packet filtering sulle interfacce di Sistemi Linux. IPtables lavora sulle 3 tabelle: filter, nat, mangle, sulle quali possiamo creare catene (chains) di regole ACL. 
 
-La tabella **Filter** (tabella di default) server per il packet filter.
+La tabella **Filter** (tabella di default) serve per il packet filter.
 Le tabelle **NAT** (SNAT e DNAT) servono per le regole di NATting.
-La tabella **Mangle** serve per modificare alcuni parametri nell'header pacchetto 
+La tabella **Mangle** serve per modificare alcuni parametri nell'header pacchetto. 
 
 La tabella Filter ha 3 catene di Default applicate su una interfaccia di rete:
 - INPUT per il processamento dei pacchetti destinati all'host.
@@ -334,7 +378,7 @@ La password è una delle forme di identificazione più semplici ed utilizzate ed
 I metodi più utilizzati sono: 
 1) Intercettazione: l'utilizzo di un canale non cifrato consente la cattura delle password sulla rete. 
 2) Furto: alcuni utenti tendono a scriverla su un supporto magnetico per non dimenticarla. 
-3) Tentativi di indovinare la password (password cracker basati su dizionari) 
+3) Tentativi di indovinare la password (password cracker basati su dizionari). 
 4) Phishing.
 
 I risultati dell’audit sul personale vengono utilizzati per programmare un **piano di formazione del personale.**
@@ -362,7 +406,7 @@ Strumenti utili sono i **Network Monitor** (esempio `ntop`, dotato di una consol
 
 #### IDS
 IDS (Intrusion Detection System) è un dispositivo software/hardware per identificare accessi non autorizzati a host o LAN. 
-L'IDS generalmente si appoggia su un Data-Base per memorizzare le regole utilizzate per individuare le violazioni di sicurezza, sono classificabili nel seguente modo: 
+L'IDS generalmente si appoggia su un database per memorizzare le regole utilizzate per individuare le violazioni di sicurezza, sono classificabili nel seguente modo: 
 - Host IDS (HIDS): analizzano file di log e file system sull'Host. 
 	- TRIPWIRE è un esempio di HIDS, si basa sulla differenza tra lo stato analizzato ed uno stato iniziale. 
 - Network IDS (NIDS): analizzano il traffico di rete. 
@@ -373,13 +417,13 @@ Quando un IDS rileva una intrusione, invia una notifica all'amministratore via e
 ---
 
 #### IPS
-Gli IPS(Intrusion Prevention System) sono un'estensione degli strumenti di IDS: quando rilevano un tentativo di intrusione sono abilitati a bloccare gli accessi considerati pericolosi. 
+Gli IPS (Intrusion Prevention System) sono un'estensione degli strumenti di IDS: quando rilevano un tentativo di intrusione sono abilitati a bloccare gli accessi considerati pericolosi. 
 
 IPS può mandare un allarme (come un IDS), ma anche interagire con un firewall per eliminare pacchetti malevoli, resettare le connessioni e/o bloccare il traffico da un indirizzo IP attaccante. 
 
 Strumenti utili: [**fail2ban**](https://guide.debianizzati.org/index.php/Fail2ban) è pensato per prevenire attacchi “brute force” via ssh bloccando temporaneamente gli indirizzi IP che provano a violare la sicurezza di un sistema. 
 
-Il programma effettua il parsing di alcuni file di log che contengono informazioni relative ad accessi falliti, se il numero di accessi falliti supera una certa soglia l’indirizzo IP del client viene bloccato attraverso una regola di iptables.
+Il programma effettua il parsing di alcuni file di log che contengono informazioni relative ad accessi falliti. Se il numero di accessi falliti supera una certa soglia, l’indirizzo IP del client viene bloccato attraverso una regola di iptables.
 
 ---
 
@@ -428,11 +472,13 @@ L’assistenza tecnica avviene attuando piani immediati di incident response in 
 
 ---
 
-## Standard e normative di sicurezza informatica
-Gli standard di sicurezza informatica sono metodologie che permettono alle organizzazioni di attuare tecniche di sicurezza finalizzate a minimizzare la quantità e la pericolosità delle minacce alla sicurezza informatica. 
+## CTI
+> Cyber Threat Intelligence.
 
-**Normative per la sicurezza informatica** 
-Uno degli standard di sicurezza più ampiamente utilizzato è l’ISO 27001 del 2013 che include un elenco di 114 controlli e che prevede una certificazione per le aziende. Nel 2017 AGID (Agenzia per l’Italia Digitale) ha emanato le Misure minime di sicurezza ICT che le pubbliche amministrazioni devono adottare.
+La Threat Intelligence, consiste nell’attività di raccolta di informazioni riguardo potenziali minacce provenienti da varie fonti; i dati vendo memorizzati, correlati e processati da processi automatici di Threat intelligence che possono generare allarmi (alert) o attivare delle azioni (Active Response).
 
-**Normative per la protezione dei dati**
-Nel 2016 l’Agenzia dell’Unione Europea per la Cybersecurity, ENISA, ha emanato il regolamento generale sulla protezione dei dati (GDPR), adottato in Italia attraverso un regolamento emanato dal Garante per la protezione dei dati personali a cui si deve attenere chi tratta i dati personali. L’articolo 34 descrive le misure minime da adottare in caso di trattamento di dati personali con strumenti elettronici.
+Esempi di sorgenti delle informazioni possono essere EDR (Endpoint Detection and Response) ovvero agenti su dispositivi quali PC, oppure Honeypot, network monitor e NIDS (Network Intrusion Detection System).
+
+Il collettore e analizzatore dei dati è tipicamente un SIEM (Security Information and Event Management).
+
+L’organizzazione delle fonti e la gestione del SIEM può essere operata da un centro operativo denominato SOC (Security Operation Center).
