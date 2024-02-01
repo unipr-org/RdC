@@ -3,7 +3,8 @@
 ---
 
 # TFTP vs FTP
-TFTP (Trivial File Transfer Protocol) è la versione semplificata di FTP (File Transfer Protocol), che è stato sviluppato per il trasferimento efficiente ed affidabile dei dati, infatti si basa su TCP.
+TFTP (Trivial File Transfer Protocol) è la versione semplificata di FTP (File Transfer Protocol).
+Il protocollo FTP è stato sviluppato per il trasferimento efficiente ed affidabile dei dati, infatti si basa su TCP.
 Il server FTP offre anche un servizio di autenticazione per l'accesso al file-system, la gestione delle directory (navigazione, creazione, cancellazione) e dei file.
 
 Altra caratteristica peculiare è quella di usare due porte: la TCP/21 (comandi) e la TCP/20 (dati).
@@ -205,7 +206,7 @@ Iterativo:
 La **risoluzione inversa** consiste nella risoluzione del nome a partire dall'indirizzo IP. Viene usata ad esempio per produrre un output leggibile nei file di log, oppure per controlli di autenticazione (e.g. richiedere che il client sia registrato).
 Il nome dei domini di Reverse è composto dai numeri della rete (in ordine rovesciato), seguiti dalla stringa “in-addr.arpa” (TLD per la risoluzione inversa). Il rovesciamento del numero consente di ricercare i numeri nello stesso albero dei nomi, utilizzando lo stesso procedimento di parsing da destra verso sinistra.
 
-> *Esempio*: `10.48.78.16.in-addr.arpa` è il nome di `caio.cce.unipr.it` nel ramo della risoluzione inversa.
+> *Esempio*: `10.48.78.160.in-addr.arpa` è il nome di `caio.cce.unipr.it` nel ramo della risoluzione inversa.
 
 Comandi bash:
 ```bash
@@ -322,7 +323,7 @@ Tutti i pacchetti DNS hanno lo stesso formato di figura, composto da:
 
 ---
 
-## DNSSEC - DNS Security Extensions
+## DNSSEC
 I Domain Name System Security Extensions (DNSSEC) sono una serie di specifiche dell'IETF (Internet Engineering Task Force) per garantire la sicurezza e affidabilità delle informazioni fornite dai sistemi DNS. 
 
 Servizi offerti: 
@@ -339,7 +340,7 @@ Il client, utilizzando la chiave pubblica del server può verificare l'autentici
 
 ---
 
-## dDNS - DNS Dinamico
+## dDNS
 Il DNS Dinamico è una tecnologia che permette ad un nome DNS in Internet di essere sempre associato all'indirizzo IP di uno stesso host, anche se l'indirizzo cambia nel tempo (tipicamente computer portatili). 
 
 Il servizio è costituito da una popolazione di client dinamici (host con indirizzo IP dinamico che vogliono che il loro IP attuale sia registrato nel DNS), da uno o più server DNS dinamici e da un protocollo di comunicazione tra le due parti. 
